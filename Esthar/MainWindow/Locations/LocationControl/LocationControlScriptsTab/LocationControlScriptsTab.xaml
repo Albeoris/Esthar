@@ -1,8 +1,6 @@
 ﻿<TabItem x:Class="Esthar.LocationControlScriptsTab"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:esthar="clr-namespace:Esthar"
-             xmlns:controls="clr-namespace:WPFExtensions.Controls;assembly=WPFExtensions"
              Header="Скрипты">
     <Grid>
         <!--<Grid.ColumnDefinitions>
@@ -10,7 +8,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>-->
-        <Grid.Resources>
+        <!--<Grid.Resources>
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>
                     <ResourceDictionary Source="/Graphs/Resources/AsmGraphDataTemplates.xaml"/>
@@ -43,7 +41,7 @@
                                     />
                 </controls:ZoomControl>
             </Border>
-            <!--<ItemsControl.ItemTemplate>
+            --><!--<ItemsControl.ItemTemplate>
                 <DataTemplate>
                         <Border CornerRadius="20" BorderBrush="#FF393939" BorderThickness="10" Margin="10">
                             <controls:ZoomControl>
@@ -57,7 +55,7 @@
                             </controls:ZoomControl>
                         </Border>
                 </DataTemplate>
-            </ItemsControl.ItemTemplate>-->
-        </ItemsControl>
+            </ItemsControl.ItemTemplate>--><!--
+        </ItemsControl>-->
     </Grid>
 </TabItem>
