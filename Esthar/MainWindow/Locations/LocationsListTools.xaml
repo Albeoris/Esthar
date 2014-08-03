@@ -1,0 +1,8 @@
+<UserControl x:Class="Esthar.LocationsListTools"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Orientation="Horizontal">
+        <Button Style="{StaticResource XamlIconStyle}" Content="{StaticResource SaveIcon}" Click="OnSaveButtonClick"/>
+        <Button Style="{StaticResource XamlIconStyle}" Content="{StaticResource UploadIcon}" Click="OnUploadButtonClick"/>
+    </StackPanel>
+</UserControl>

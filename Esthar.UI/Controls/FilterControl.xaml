@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="Esthar.UI.FilterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Esthar.UI;component/GeneralDictionary.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="24" Height="24"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto" MaxWidth="32"/>
+        </Grid.ColumnDefinitions>
+        
+        <xctk:WatermarkTextBox
+            Grid.Row="0"
+            Grid.Column="0"
+            MinHeight="24"
+            Height="{Binding FilterControlHeight, Mode=OneWayToSource}"
+            Visibility="{Binding ContentPresenterVisibility, Mode=OneWay}"
+            Watermark="{Binding FilterWatermark, Mode=OneWay}"
+            Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            />
+
+        <xctk:WatermarkTextBox
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="{Binding InternalFilterControlColumnSpan}"
+            MinHeight="24"
+            Height="{Binding InternalFilterControlHeight, Mode=OneWayToSource}"
+            Visibility="{Binding TagsPanelVisibility, Mode=OneWay}"
+            Watermark="Имя тега..."
+            Text="{Binding InternalFilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            />
+
+        <ToggleButton
+            Grid.Row="0"
+            Grid.Column="1"
+            Style="{StaticResource XamlIconStyle}"
+            Content="{StaticResource ThreeDotsIcon}"
+            Height="{Binding ToggleButtonHeight, Mode=OneWay}"
+            IsChecked="{Binding IsShownTags, Mode=OneWayToSource}"
+            Visibility="{Binding ToggleButtonVisibility}"
+            />
+        
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Visibility="{Binding TagsPanelVisibility,  Mode=OneWay}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="24"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <UniformGrid
+                    MaxHeight="120"
+                    Initialized="OnPropertiesPanelInitialized">
+                    <!--<WrapPanel.LayoutTransform>
+                        <ScaleTransform ScaleX='2' ScaleY='2' />
+                    </WrapPanel.LayoutTransform>-->
+                </UniformGrid>
+            </ScrollViewer>
+            
+            <Separator BorderThickness="3" BorderBrush="DarkGray" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <UniformGrid
+                    VerticalAlignment="Center" HorizontalAlignment="Left"
+                    Initialized="OnTagsPanelInitialized">
+                    <!--<WrapPanel.LayoutTransform>
+                        <ScaleTransform ScaleX='2' ScaleY='2' />
+                    </WrapPanel.LayoutTransform>-->
+                </UniformGrid>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Initialized ="OnInnerContentGridInitialized"
+            Visibility="{Binding ContentPresenterVisibility,  Mode=OneWay}"
+            />
+        
+    </Grid>
+</UserControl>

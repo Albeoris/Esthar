@@ -1,0 +1,32 @@
+﻿using System.Runtime.InteropServices;
+
+namespace Esthar.Data
+{
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public struct KernellS19LimitBlueMagic
+    {
+        public const int TextSection = 49;
+
+        public ushort NameOffset;
+        public ushort DescriptionOffset;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)] public byte[] Unknown;
+
+        //0000 0A00 470005028050230100C800C8
+        //1600 2200 B80005028040230100C80000
+        //3100 3D00 130105028040230104C80000
+        //5600 5F00 4A00051A8040230100FE0000
+        //7900 8500 320105028050230100FE0000
+        //8F00 9B00 480005028040230140C80000
+        //B200 C100 2B0105088050230100C80000
+        //CD00 D200 3D0105028050230100C80000
+        //E700 F300 310104018050230100C80000
+        //FF00 0B01 E60005028040230101C80000
+        //2001 2B01 2C0105028040230100C80000
+        //4301 4E01 290100198000230100C80000
+        //6801 7501 E50005028050230100C80000
+        //8101 8E01 490000028000230100C80000
+        //A401 AD01 330105028040230100C80000
+        //BC01 CD01 0401050280402B0100C80000
+    }
+}

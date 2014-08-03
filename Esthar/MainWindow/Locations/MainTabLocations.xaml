@@ -1,0 +1,15 @@
+﻿<TabItem x:Class="Esthar.MainTabLocations"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:esthar="clr-namespace:Esthar"
+             Header="Локации">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <esthar:LocationsListControl x:Name="LocationsListControl" Grid.Column="0"/>
+        <esthar:LocationControl x:Name="LocationControl" Grid.Column="1"/>
+        <GridSplitter Grid.Column="1" Width="3" HorizontalAlignment="Left"/>
+    </Grid>
+</TabItem>

@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Esthar.UI.ProgressControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <Grid Height="Auto" Width="Auto">
+        <ProgressBar Grid.Row="0" Name="_progressBar"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="5" Name="_progressText" Text="100%"/>
+            <TextBlock Margin="5" Name="_speedText" Text="0 КБ / сек"/>
+            <TextBlock Margin="5"  Name="_beginTimeText" Text="Прошло: 00:00" />
+            <TextBlock Margin="5"  Name="_endTimeText" Text="Осталось: 00:00" />
+        </StackPanel>
+    </Grid>
+</UserControl>

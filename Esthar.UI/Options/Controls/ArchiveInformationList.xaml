@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Esthar.UI.ArchiveInformationList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:core="clr-namespace:Esthar.Core;assembly=Esthar.Core"
+             xmlns:ui="clr-namespace:Esthar.UI"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:me="clr-namespace:Esthar.UI.MarkupExtensions;assembly=Esthar.UI.MarkupExtensions">
+    <StackPanel>
+        <ListView DataContext="{me:AncestorBinding AncestorType=ui:ArchiveInformationList, AncestorLevel=1}"
+              ItemsSource="{Binding Archives}"
+              x:Name="ArchviesListControl" MinHeight="150">
+        
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Width="Auto">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsSelected}"/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+                <GridViewColumn Header="{x:Static core:Lang.WizardArchivesArchiveName}" Width="Auto" DisplayMemberBinding="{Binding DisplayName}"/>
+                <GridViewColumn Width="500" Header="{x:Static core:Lang.WizardArchivesArchiveState}">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentPresenter HorizontalAlignment="Stretch" Content="{Binding State}"/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+            </GridView>
+        </ListView.View>
+    </ListView>
+        <Button x:Name="OptimizeButton" Content="{x:Static core:Lang.WizardArchivesOptimize}"/>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,20 @@
+﻿<GroupBox x:Class="Esthar.MessageWindowControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             Header="Расположение и настройки окна">
+    <StackPanel Orientation="Horizontal">
+        <TextBlock Margin="3" Text="X:"/>
+        <xctk:IntegerUpDown IsEnabled="False" x:Name="WindowXControl" Margin="3,3,3,0" Width="50" Minimum="0" Maximum="630" Increment="2"/>
+        <TextBlock Margin="3" Text="Y:"/>
+        <xctk:IntegerUpDown IsEnabled="False" x:Name="WindowYControl" Margin="3,3,3,0" Width="50" Minimum="0" Maximum="438" Increment="2"/>
+        <TextBlock Margin="3" Text="Ответы:"/>
+        <xctk:IntegerUpDown IsEnabled="False" x:Name="WindowFirstAnswerControl" Margin="3,3,1,0" Width="40" Minimum="0" Maximum="20"/>
+        <TextBlock Margin="1,3,1,3" Text="-"/>
+        <xctk:IntegerUpDown IsEnabled="False" x:Name="WindowLastAnswerControl" Margin="1,3,3,0" Width="40" Minimum="0" Maximum="20"/>
+        <TextBlock Margin="3" Text="Курсор:"/>
+        <xctk:IntegerUpDown IsEnabled="False" x:Name="WindowDefaultAnswerControl" Margin="3,3,3,0" Width="40" Minimum="0" Maximum="20"/>
+        <TextBlock Margin="3" Text="При отмене:"/>
+        <xctk:IntegerUpDown IsEnabled="False" x:Name="WindowCancelAnswerControl" Margin="3,3,3,0" Width="40" Minimum="0" Maximum="20"/>
+    </StackPanel>
+</GroupBox>

@@ -1,0 +1,183 @@
+﻿<SyntaxDefinition name="FF8Text"
+        xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+
+  <Color name="UnknownTag" foreground="#FF0000"/>
+  <Color name="KnownTag" foreground="#4169E1"/>
+  <Color name="ColorTagDisabled" foreground="#000000"/>
+  <Color name="ColorTagGrey" foreground="#808080"/>
+  <Color name="ColorTagYellow" foreground="#FFD700"/>
+  <Color name="ColorTagRed" foreground="#AA0000"/>
+  <Color name="ColorTagGreen" foreground="#006400"/>
+  <Color name="ColorTagBlue" foreground="#0000CD"/>
+  <Color name="ColorTagPurple" foreground="#DA70D6"/>
+  <Color name="ColorTagWhite" foreground="#EEEEEE"/>
+
+  <RuleSet>
+    <Keywords fontWeight="bold" color="KnownTag">
+      <Word>{Next}</Word>
+      <Word>{Speaker}</Word>
+    </Keywords>
+
+    <Span fontWeight="bold" color="KnownTag" begin="\{Char\s{1}\b" end="\}">
+      <RuleSet>
+        <Keywords>
+          <Word>Squall</Word>
+          <Word>Zell</Word>
+          <Word>Irvine</Word>
+          <Word>Quistis</Word>
+          <Word>Rinoa</Word>
+          <Word>Selphie</Word>
+          <Word>Seifer</Word>
+          <Word>Edea</Word>
+          <Word>Laguna</Word>
+          <Word>Kiros</Word>
+          <Word>Ward</Word>
+          <Word>Angelo1</Word>
+          <Word>Griever</Word>
+          <Word>Mog</Word>
+          <Word>Chocobo</Word>
+          <Word>UnknownCharacter2</Word>
+          <Word>Angelo2</Word>
+          <Word>UnknownCharacter3</Word>
+          <Word>UnknownCharacter4</Word>
+        </Keywords>
+
+        <Rule color="UnknownTag">\b[^}]+</Rule>
+      </RuleSet>
+    </Span>
+    
+    <Span fontWeight="bold" color="KnownTag" begin="\{Key\s{1}\b" end="\}">
+      <RuleSet>
+        <Keywords>
+          <Word>EscapeKey1</Word>
+          <Word>EscapeKey2</Word>
+          <Word>Menu</Word>
+          <Word>Confirm</Word>
+          <Word>Cancel</Word>
+          <Word>Cards</Word>
+          <Word>Select</Word>
+          <Word>EndConcertKey</Word>
+          <Word>LeftKey</Word>
+          <Word>RightKey</Word>
+          <Word>UpKey</Word>
+          <Word>DownKey</Word>
+          <Word>L1</Word>
+          <Word>R1</Word>
+          <Word>Triangle</Word>
+          <Word>Circle</Word>
+          <Word>Cross</Word>
+          <Word>Square</Word>
+          <Word>DefaultKey</Word>
+          <Word>EndKey</Word>
+          <Word>PartyKey</Word>
+        </Keywords>
+
+        <Rule color="UnknownTag">\b[^}]+</Rule>
+      </RuleSet>
+    </Span>
+    
+    <Span fontWeight="bold" color="KnownTag" begin="\{Color\s{1}\b" end="\}">
+      <RuleSet>
+        <Keywords color="ColorTagDisabled">
+          <Word>Disabled</Word>
+          <Word>DisabledBlink</Word>
+        </Keywords>
+        <Keywords color="ColorTagGrey">
+          <Word>Grey</Word>
+          <Word>GreyBlink</Word>
+        </Keywords>
+        <Keywords color="ColorTagYellow">
+          <Word>Yellow</Word>
+          <Word>YellowBlink</Word>
+        </Keywords>
+        <Keywords color="ColorTagRed">
+          <Word>Red</Word>
+          <Word>RedBlink</Word>
+        </Keywords>
+        <Keywords color="ColorTagGreen">
+          <Word>Green</Word>
+          <Word>GreenBlink</Word>
+        </Keywords>
+        <Keywords color="ColorTagBlue">
+          <Word>Blue</Word>
+          <Word>BlueBlink</Word>
+        </Keywords>
+        <Keywords color="ColorTagPurple">
+          <Word>Purple</Word>
+          <Word>PurpleBlink</Word>
+        </Keywords>
+        <Keywords color="ColorTagWhite">
+          <Word>White</Word>
+          <Word>WhiteBlink</Word>
+        </Keywords>
+
+        <Rule color="UnknownTag">\b[^}]+</Rule>
+      </RuleSet>
+    </Span>
+
+    <Span fontWeight="bold" color="KnownTag" begin="\{Dialog\s{1}\b" end="\}">
+      <RuleSet>
+        <Keywords>
+          <Word>CardLevel</Word>
+          <Word>CurrentValue</Word>
+          <Word>SelectedGF</Word>
+          <Word>SelectedGFAbility</Word>
+          <Word>SelectedMagic</Word>
+          <Word>SelectedCharacter</Word>
+          <Word>SelectedParam</Word>
+          <Word>SelectedBlueMagic</Word>
+        </Keywords>
+
+        <Rule color="UnknownTag">\b[^}]+</Rule>
+      </RuleSet>
+    </Span>
+
+    <Span fontWeight="bold" color="KnownTag" begin="\{Term\s{1}\b" end="\}">
+      <RuleSet>
+        <Keywords>
+          <Word>Galbadia</Word>
+          <Word>Esthar</Word>
+          <Word>Balamb</Word>
+          <Word>Dollet</Word>
+          <Word>Timber</Word>
+          <Word>Trabia</Word>
+          <Word>Centra</Word>
+          <Word>FishermansHorizon</Word>
+          <Word>EastAcademy</Word>
+          <Word>DesertPrison</Word>
+          <Word>TrabiaGarden</Word>
+          <Word>LunarBase</Word>
+          <Word>ShumiVillage</Word>
+          <Word>DelingCity</Word>
+          <Word>BalambGarden</Word>
+          <Word>EastAcademyStation</Word>
+          <Word>DolletStation</Word>
+          <Word>DesertPrisonStation</Word>
+          <Word>LunarGate</Word>
+          <Word>Restores</Word>
+          <Word>Status</Word>
+          <Word>Learns</Word>
+          <Word>Ability</Word>
+          <Word>Magic</Word>
+          <Word>Refine</Word>
+          <Word>Junctions</Word>
+          <Word>Raises</Word>
+          <Word>Command</Word>
+          <Word>Magazine</Word>
+          <Word>UltimeciaCastle</Word>
+          <Word>Garden</Word>
+          <Word>Deling</Word>
+        </Keywords>
+
+        <Rule color="UnknownTag">\b[^}]+</Rule>
+      </RuleSet>
+    </Span>
+
+    <Rule fontWeight="bold" color="KnownTag">\{(Var|Pause)\s{1}[0-9]+\}</Rule>
+    
+    <!--Всё остальное-->
+    <Rule fontWeight="bold" color="UnknownTag">\{[^}]*\}</Rule>
+    <Rule fontWeight="bold" color="UnknownTag">\{</Rule>
+    
+  </RuleSet>
+</SyntaxDefinition>

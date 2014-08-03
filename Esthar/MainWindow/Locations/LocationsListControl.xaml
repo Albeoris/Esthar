@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Esthar.LocationsListControl"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:esthar="clr-namespace:Esthar"
+	xmlns:ui="clr-namespace:Esthar.UI;assembly=Esthar.UI">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <esthar:LocationsListTools x:Name="_tools" Grid.Row="0"/>
+        <ui:FilterControl x:Name="Filter" Grid.Row="2">
+            <ui:FilterControl.InnerContent>
+                <esthar:LocationsListView Loaded="OnLocationsListViewLoaded" />
+            </ui:FilterControl.InnerContent>
+        </ui:FilterControl>
+    </Grid>
+</UserControl>

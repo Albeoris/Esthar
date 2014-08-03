@@ -1,0 +1,40 @@
+﻿<Window x:Class="Esthar.LocationSaveDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:esthar="clr-namespace:Esthar"
+        Title="LocationSaveDialog" Height="480" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Локации">
+            <ListBox x:Name="LocationsListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"/>
+                            <TextBlock Text="{Binding Title}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Выбрать все" Click="OnListSelectAll"/>
+                        <MenuItem Header="Снять выделение" Click="OnListClearSelection"/>
+                        <MenuItem Header="Инвертировать выделение" Click="OnListInvertSelection"/>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+            </ListBox>
+        </GroupBox>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Margin="5" Width="100" Content="OK" Click="OnOkButtonClick"/>
+            <Button Margin="5" Width="100" Content="Отмена"  Click="OnCancelButtonClick"/>
+        </StackPanel>
+    </Grid>
+</Window>

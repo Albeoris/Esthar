@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B0F52035-6315-440D-86C9-DF4D54C687FE}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Esthar.UI</RootNamespace>
+    <AssemblyName>Esthar.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>..\..\..\..\!Libs\Windows API Code Pack 1.1\binaries\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>..\..\..\..\!Libs\Windows API Code Pack 1.1\binaries\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL" />
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Coding\C#\!Libs\Extended WPF Toolkit\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Annotations.cs" />
+    <Compile Include="AttachedProperties\AP.cs" />
+    <Compile Include="BindingDataTemplate.cs" />
+    <Compile Include="Controls\ScrollViewerWindowsFormsHost.cs" />
+    <Compile Include="Controls\FilterControl.xaml.cs">
+      <DependentUpon>FilterControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GLLocationPreviewElement.xaml.cs">
+      <DependentUpon>GLLocationPreviewElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SelectDirectoryControl.xaml.cs">
+      <DependentUpon>SelectDirectoryControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FontChooser\FontChooser.xaml.cs">
+      <DependentUpon>FontChooser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FontChooser\FontFamilyListItem.cs" />
+    <Compile Include="Dialogs\FontChooser\FontSizeListItem.cs" />
+    <Compile Include="Dialogs\FontChooser\NameDictionaryHelper.cs" />
+    <Compile Include="Dialogs\FontChooser\TypefaceListItem.cs" />
+    <Compile Include="Dialogs\FontChooser\TypographicFeatureListItem.cs" />
+    <Compile Include="FrameworkElementExm.cs" />
+    <Compile Include="NotifyPropertyChangedBase.cs" />
+    <Compile Include="Options\Controls\ArchiveInformationView.cs" />
+    <Compile Include="Options\Controls\ArchiveInformationList.xaml.cs">
+      <DependentUpon>ArchiveInformationList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Controls\OptimizationReservesControl.xaml.cs">
+      <DependentUpon>OptimizationReservesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Options\OptionsArchivesWindow.xaml.cs">
+      <DependentUpon>OptionsArchivesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Options\OptionsPathsWindow.xaml.cs">
+      <DependentUpon>OptionsPathsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Progress\ProgressControl.xaml.cs">
+      <DependentUpon>ProgressControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Progress\ProgressEntry.cs" />
+    <Compile Include="Progress\ProgressWindow.xaml.cs">
+      <DependentUpon>ProgressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="TemplatedParentPathBinding.cs" />
+    <Compile Include="TemplateFactories\CheckBoxTemplateFactory.cs" />
+    <Compile Include="TemplateFactories\ColorPickerTemplateFactory.cs" />
+    <Compile Include="TemplateFactories\FontedTextBlockTemplateFactory.cs" />
+    <Compile Include="TemplateFactories\FontedTextBoxTemplateFactory.cs" />
+    <Compile Include="TemplateFactories\TemplateFactories.cs" />
+    <Compile Include="TemplateFactories\TemplateFactory.cs" />
+    <Compile Include="TemplateFactories\TemplateFactoryBase.cs" />
+    <Compile Include="TemplateFactories\TemplateFactoryType.cs" />
+    <Compile Include="TemplateFactories\TextBlockTemplateFactory.cs" />
+    <Compile Include="UIElementExm.cs" />
+    <Compile Include="UiElementUsages.cs" />
+    <Compile Include="UIHelper.cs" />
+    <Compile Include="UIService.cs" />
+    <Compile Include="Validation\CustomRule.cs" />
+    <Compile Include="Validation\DirectoryMustExistsRule.cs" />
+    <Compile Include="Validation\FileMustExistsRule.cs" />
+    <Compile Include="Validation\RuleBinding.cs" />
+    <Compile Include="SelfBinding.cs" />
+    <Compile Include="Validation\ValidationHelper.cs" />
+    <Compile Include="ValueConverters\AllToBoolConverter.cs" />
+    <Compile Include="ValueConverters\AnyToBoolConverter.cs" />
+    <Compile Include="ValueConverters\ConvertHelper.cs" />
+    <Compile Include="Dummy.cs" />
+    <Compile Include="ValueConverters\InverseBoolValueConverter.cs" />
+    <Compile Include="TemplateFactories\TextBoxTemplateFactory.cs" />
+    <Compile Include="ValueConverters\ValueConverters.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\FilterControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GLLocationPreviewElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SelectDirectoryControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\FontChooser\FontChooser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GeneralDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Options\Controls\ArchiveInformationList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Options\Controls\OptimizationReservesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Options\OptionsArchivesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Options\OptionsPathsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Progress\ProgressControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Progress\ProgressWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ListViewStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Selphie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Esthar.Core\Esthar.Core.csproj">
+      <Project>{DFEB7F87-6D24-403F-868E-4152B4D19CE1}</Project>
+      <Name>Esthar.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Esthar.Data\Esthar.Data.csproj">
+      <Project>{EF5FBC12-17ED-4B3F-862B-9F168329FDE1}</Project>
+      <Name>Esthar.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Esthar.OpenGL\Esthar.OpenGL.csproj">
+      <Project>{45758ECB-02BA-41CF-987E-EA08C93AA329}</Project>
+      <Name>Esthar.OpenGL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Esthar.UI.MarkupExtensions\Esthar.UI.MarkupExtensions.csproj">
+      <Project>{C168F8DE-E74B-4A0E-BC07-11EAC49875B5}</Project>
+      <Name>Esthar.UI.MarkupExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Rinoa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

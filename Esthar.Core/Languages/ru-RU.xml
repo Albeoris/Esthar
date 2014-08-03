@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Data>
+
+  <Errors
+    FileMustBeSpecified="Необходимо выбрать существующий файл"
+    DirectoryMustBeSpecified="Необходимо выбрать существующий каталог"
+    FileNotFoundFormat="Файле не существует: {0}"
+    DirectoryNotFoundFormat="Каталог не существует: {0}"
+    />
+
+  <Measurements
+    Elapsed="Прошло"
+    Remaining="Осталось"
+    SecondAbbr="сек"
+    ByteAbbr="Б"
+    KByteAbbr="КБ"
+    MByteAbbr="МБ"
+    GByteAbbr="ГБ"
+    TByteAbbr="ТБ"
+    PByteAbbr="ПБ"
+    EByteAbbr="ЭБ"
+    />
+  
+  <Buttons
+    OK="OK"
+    Cancel="Отмена"
+    Continue="Продолжить"
+    />
+  
+  <Wizard
+    Header="Вас приветствует мастер настройки!"
+    Hint="Вы всегда можете вызвать это окно вновь, запустив программу с зажатой клавишей Shift.">
+    
+    <Directories
+      Header="Пожалуйста, укажите пути к каталогам, которые программа будет использовать для работы."
+      GameDir="Каталог игры:"
+      WorkingDir="Рабочий каталог:"
+      CVSDir="Каталог системы контроля версия:">
+    </Directories>
+
+    <Archives
+      Header="Пожалуйста, оптимизируйте архивы для комфортной работы. Если вы будете вносить изменения в игру, рекомендуется зарезервировать дополнительное пространство."
+      ArchiveList="Список архивов"
+      ArchiveName="Архив "
+      ArchiveState="Состояние "
+      Extension="Расширение "
+      Reserve="Резервируемое пространство"
+      AbsoluteReserve="Абсолютный объем (байт)"
+      RelativeReserve="Относительный объем (%)"
+      AbsoluteReserveFormat="0 байт"
+      RelativeReserveFormat="0 \%"
+      Optimize="Оптимизировать"
+      >
+    </Archives>
+    
+  </Wizard> 
+  
+</Data>

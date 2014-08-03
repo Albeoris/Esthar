@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{582EB794-1550-4B47-B2F4-ACB8DF07EF89}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Esthar</RootNamespace>
+    <AssemblyName>Esthar</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GraphSharp">
+      <HintPath>..\..\..\..\..\..\Temp\GraphSharp\Release\GraphSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphSharp.Controls">
+      <HintPath>..\..\..\..\..\..\Temp\GraphSharp\Release\GraphSharp.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>..\..\..\..\!Libs\AvalonEdit\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL" />
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL" />
+    <Reference Include="QuickGraph">
+      <HintPath>..\..\..\..\..\..\Temp\GraphSharp\Source\Libraries\QuickGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFExtensions">
+      <HintPath>..\..\..\..\..\..\Temp\GraphSharp\Source\Libraries\WPFExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Coding\C#\!Libs\Extended WPF Toolkit\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="FontConfiguration\FontConfigurationWindow.xaml.cs">
+      <DependentUpon>FontConfigurationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\AsmVertex.xaml.cs">
+      <DependentUpon>AsmVertex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\LayoutManager.cs" />
+    <Compile Include="Graphs\Model\GraphModel.cs" />
+    <Compile Include="Graphs\AsmEdge.cs" />
+    <Compile Include="Graphs\AsmGraph.cs" />
+    <Compile Include="Graphs\ViewModel\AsmGraphLayout.cs" />
+    <Compile Include="Graphs\ViewModel\GraphLayoutViewModel.cs" />
+    <Compile Include="Graphs\ViewModel\LayoutAnalyzerViewModel.cs" />
+    <Compile Include="LocationView.cs" />
+    <Compile Include="MainWindow\Locations\LocationControl\LocationControl.xaml.cs">
+      <DependentUpon>LocationControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\Locations\LocationControl\LocationControlScriptsTab\AsmGraphFactory.cs" />
+    <Compile Include="MainWindow\Locations\LocationControl\LocationControlScriptsTab\LocationControlScriptsTab.xaml.cs">
+      <DependentUpon>LocationControlScriptsTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTab.xaml.cs">
+      <DependentUpon>LocationControlTextTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabEdit.xaml.cs">
+      <DependentUpon>LocationControlTextTabEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabList.xaml.cs">
+      <DependentUpon>LocationControlTextTabList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabPreview.xaml.cs">
+      <DependentUpon>LocationControlTextTabPreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationTextControlContext.cs" />
+    <Compile Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationTextWatcher.cs" />
+    <Compile Include="MainWindow\Locations\LocationControl\LocationControlTextTab\MessageWindowControl.xaml.cs">
+      <DependentUpon>MessageWindowControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\Locations\LocationSaveDialog.xaml.cs">
+      <DependentUpon>LocationSaveDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\Locations\MainTabLocations.xaml.cs">
+      <DependentUpon>MainTabLocations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\MainTabs.xaml.cs">
+      <DependentUpon>MainTabs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\Locations\LocationsListControl.xaml.cs">
+      <DependentUpon>LocationsListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\Locations\LocationsListTools.xaml.cs">
+      <DependentUpon>LocationsListTools.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\Locations\LocationsListView.xaml.cs">
+      <DependentUpon>LocationsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ResourcesAccessor.cs" />
+    <Compile Include="TagsConfiguration\FontDescriptorView.cs" />
+    <Compile Include="TagsConfiguration\SelectFontCommand.cs" />
+    <Compile Include="TagsConfiguration\TagsConfigWindow.xaml.cs">
+      <DependentUpon>TagsConfigWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TagsConfiguration\UserTagView.cs" />
+    <Compile Include="TagsEditing\TagsEditWindow.xaml.cs">
+      <DependentUpon>TagsEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="FontConfiguration\FontConfigurationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Graphs\AsmVertex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Graphs\Resources\AsmGraphDataTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationControl\LocationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationControl\LocationControlScriptsTab\LocationControlScriptsTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabPreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationControl\LocationControlTextTab\MessageWindowControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationSaveDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\Locations\MainTabLocations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\MainTabs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationsListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationsListTools.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationsListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="TagsConfiguration\TagsConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TagsEditing\TagsEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow\Locations\LocationControl\LocationControlTextTab\TextHighlighting.xshd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Esthar.Core\Esthar.Core.csproj">
+      <Project>{DFEB7F87-6D24-403F-868E-4152B4D19CE1}</Project>
+      <Name>Esthar.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Esthar.Data\Esthar.Data.csproj">
+      <Project>{EF5FBC12-17ED-4B3F-862B-9F168329FDE1}</Project>
+      <Name>Esthar.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Esthar.OpenGL\Esthar.OpenGL.csproj">
+      <Project>{45758ECB-02BA-41CF-987E-EA08C93AA329}</Project>
+      <Name>Esthar.OpenGL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Esthar.Transform\Esthar.Data.Transform.csproj">
+      <Project>{3901d508-b86c-40d0-a6cf-2a759b9af1b4}</Project>
+      <Name>Esthar.Data.Transform</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Esthar.UI.MarkupExtensions\Esthar.UI.MarkupExtensions.csproj">
+      <Project>{c168f8de-e74b-4a0e-bc07-11eac49875b5}</Project>
+      <Name>Esthar.UI.MarkupExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Esthar.UI\Esthar.UI.csproj">
+      <Project>{b0f52035-6315-440d-86c9-df4d54c687fe}</Project>
+      <Name>Esthar.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Cursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DisabledCursor.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

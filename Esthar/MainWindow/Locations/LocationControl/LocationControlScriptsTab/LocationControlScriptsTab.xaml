@@ -1,0 +1,63 @@
+﻿<TabItem x:Class="Esthar.LocationControlScriptsTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:esthar="clr-namespace:Esthar"
+             xmlns:controls="clr-namespace:WPFExtensions.Controls;assembly=WPFExtensions"
+             Header="Скрипты">
+    <Grid>
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>-->
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="/Graphs/Resources/AsmGraphDataTemplates.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+
+        <ItemsControl>
+            <ItemsControl.LayoutTransform>
+                <ScaleTransform ScaleX="{Binding Path=Value, ElementName=zoomSlider}"
+							ScaleY="{Binding Path=Value, ElementName=zoomSlider}"
+							CenterX="0.5"
+							CenterY="0.5" />
+            </ItemsControl.LayoutTransform>
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <Border CornerRadius="20" BorderBrush="#FF393939" BorderThickness="10" Margin="10">
+                <controls:ZoomControl>
+                    <esthar:AsmGraphLayout
+                                    x:Name="graphLayout"
+                                    LayoutAlgorithmType="EfficientSugiyama"
+					                esthar:LayoutManager.ManagedLayout="True"
+					                OverlapRemovalAlgorithmType="FSA"
+					                HighlightAlgorithmType="Simple"
+                                    />
+                </controls:ZoomControl>
+            </Border>
+            <!--<ItemsControl.ItemTemplate>
+                <DataTemplate>
+                        <Border CornerRadius="20" BorderBrush="#FF393939" BorderThickness="10" Margin="10">
+                            <controls:ZoomControl>
+                                <esthar:AsmGraphLayout
+                                    x:Name="graphLayout"
+                                    Graph="{Binding Path=Graph}"
+					                esthar:LayoutManager.ManagedLayout="True"
+					                OverlapRemovalAlgorithmType="FSA"
+					                HighlightAlgorithmType="Simple"
+                                    />
+                            </controls:ZoomControl>
+                        </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>-->
+        </ItemsControl>
+    </Grid>
+</TabItem>

@@ -1,0 +1,30 @@
+﻿<Window x:Class="Esthar.UI.OptionsPathsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="clr-namespace:Esthar.UI"
+        xmlns:core="clr-namespace:Esthar.Core;assembly=Esthar.Core"
+        ResizeMode="NoResize" Width="800" Height="550" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Esthar.UI;component/Styles/ButtonStyles.xaml"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="pack://application:,,,/Esthar.UI;component/Resources/Selphie.png" SnapsToDevicePixels="True" Stretch="None" />
+        <StackPanel Grid.Column="1" Grid.Row="0" >
+            <TextBlock Text="{x:Static core:Lang.WizardHeader}" TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Margin="5"/>
+            <TextBlock Text="{x:Static core:Lang.WizardHint}" TextWrapping="Wrap" FontSize="12" FontStyle="Italic" Margin="5"/>
+            <TextBlock Text="{x:Static core:Lang.WizardDirectoriesHeader}" TextWrapping="Wrap" FontSize="16" Margin="5,10,5,10"/>
+            <ui:SelectDirectoryControl x:Name="GameDirectoryControl" Header="{x:Static core:Lang.WizardDirectoriesGameDir}" MustExists="True"/>
+            <ui:SelectDirectoryControl x:Name="WorkingDirectoryControl" Header="{x:Static core:Lang.WizardDirectoriesWorkingDir}" MustExists="True"/>
+            <ui:SelectDirectoryControl x:Name="CVSDirectoryControl" Header="{x:Static core:Lang.WizardDirectoriesCVSDir}" MustExists="False"/>
+        </StackPanel>
+        <Button x:Name="ContinueButton" Margin="10" Grid.Column="1" Grid.Row="1" Style="{StaticResource WizardButton}" Content="{x:Static core:Lang.ButtonsContinue}"/>
+    </Grid>
+</Window>
