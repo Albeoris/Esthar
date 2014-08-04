@@ -94,6 +94,7 @@ namespace Esthar.Core
         public const string GameExecutableMask = "ff8*.exe";
         public const string GameExecutablesExpression = @"(?i)ff8(|_[a-z]{1,2})\.exe\Z";
         public const string GameDataDirectoryName = "Data";
+        public const string GameDataDirectorySubName = "lang-en";
 
         public static readonly string[] GameArchivesNames = { "battle", "field", "magic", "main", "menu", "world" };
 
@@ -111,7 +112,12 @@ namespace Esthar.Core
 
         public static string GameDataDirectoryPath
         {
-            get { return Path.Combine(GameDirectory, GameDataDirectoryName); }
+            get
+            {
+                string path = Path.Combine(GameDirectory, GameDataDirectoryName);
+                string altPath = Path.Combine(path, GameDataDirectorySubName);
+                return Directory.Exists(altPath) ? altPath : path;
+            }
         }
 
         public static IEnumerable<string> GetGameArchivesPaths()
