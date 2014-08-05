@@ -11,10 +11,12 @@ namespace Esthar.Data.Transform
 
         public int Index { get; set; }
         public int Order { get; set; }
+        public bool IsIndent { get; set; }
 
         public LocalizableString(string original, string current)
         {
             Order = -1;
+            IsIndent = false;
             Original = Exceptions.CheckArgumentNull(original, "original");
             Current = Exceptions.CheckArgumentNull(current, "current");
         }
@@ -25,11 +27,13 @@ namespace Esthar.Data.Transform
             foreach (XmlElement child in node.ChildNodes)
             {
                 int? order = child.FindInt32("Order");
+                bool? isIndent = child.FindBoolean("IsIndent");
                 string orig = child.GetString("Original");
                 string curr = child.GetString("Current");
                 
                 LocalizableString str = new LocalizableString(orig, curr);
                 if (order != null) str.Order = order.Value;
+                if (isIndent != null) str.IsIndent = isIndent.Value;
                 
                 result.Add(str);
             }

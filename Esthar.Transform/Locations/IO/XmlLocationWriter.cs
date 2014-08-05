@@ -128,6 +128,7 @@ namespace Esthar.Data.Transform
             {
                 XmlElement child = node.CreateChildElement("Monologue");
                 child.SetInt32("Order", monologue.Order);
+                child.SetBoolean("IsIndent", monologue.IsIndent);
                 child.SetString("Current", monologue.Current); 
                 child.SetString("Original", monologue.Original);
             }

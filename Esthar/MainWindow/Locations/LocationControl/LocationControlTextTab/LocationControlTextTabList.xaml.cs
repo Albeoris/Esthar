@@ -39,12 +39,30 @@ namespace Esthar
 
             Style itemContainerStyle = new Style(typeof(ListBoxItem));
             itemContainerStyle.Setters.Add(new Setter(AllowDropProperty, true));
+            itemContainerStyle.Setters.Add(new EventSetter(KeyUpEvent, new KeyEventHandler(OnKeyUpEvent)));
             itemContainerStyle.Setters.Add(new EventSetter(PreviewMouseMoveEvent, new MouseEventHandler(OnPreviewMouseMoveEvent)));
             itemContainerStyle.Setters.Add(new EventSetter(DropEvent, new DragEventHandler(OnListBoxDrop)));
             _listBoxInstance.ItemContainerStyle = itemContainerStyle;
 
             _listBoxInstance.SelectionChanged += OnSelectionChanged;
             Filter.FilterChanged += OnFilterChanged;
+        }
+
+        private void OnKeyUpEvent(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Insert || (Keyboard.Modifiers & ModifierKeys.Shift) != ModifierKeys.Shift)
+                return;
+
+            ListBoxItem item = sender as ListBoxItem;
+            if (item == null)
+                return;
+
+            MessageWindow window = (MessageWindow)item.DataContext;
+            if (window == null)
+                return;
+
+            window.IsIndent = !window.IsIndent;
+            OnFilterChanged(_lastFilter);
         }
 
         private void OnPreviewMouseMoveEvent(object sender, MouseEventArgs e)

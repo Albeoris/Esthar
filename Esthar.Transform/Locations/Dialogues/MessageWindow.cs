@@ -1,4 +1,5 @@
 using System;
+using System.Windows;
 using System.Windows.Media;
 
 namespace Esthar.Data.Transform
@@ -115,6 +116,12 @@ namespace Esthar.Data.Transform
             set { Message.Order = value; }
         }
 
+        public bool IsIndent
+        {
+            get { return Message.IsIndent; }
+            set { Message.IsIndent = value; }
+        }
+
         public int X
         {
             get { return IsMovable && !IsDynamic ? _x.ResolveValue() : DefaultX; }
@@ -183,6 +190,11 @@ namespace Esthar.Data.Transform
         public Brush DisplayBrush
         {
             get { return Message.Current == Message.Original ? Brushes.Black : Brushes.ForestGreen; }
+        }
+
+        public Thickness DisplayMargin
+        {
+            get { return IsIndent ? new Thickness(0, 16, 0, 0) : new Thickness(); }
         }
     }
 }

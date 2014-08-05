@@ -4,6 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="clr-namespace:Esthar.UI;assembly=Esthar.UI"
+    xmlns:transform="clr-namespace:Esthar.Data.Transform;assembly=Esthar.Data.Transform"
     mc:Ignorable="d"
     x:Class="Esthar.LocationControlTextTabList">
     <GroupBox Header="Монологи">
@@ -11,8 +12,8 @@
             <ui:FilterControl.InnerContent>
                 <ListBox Loaded="OnListLoaded">
                     <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding DisplayName}" Foreground="{Binding DisplayBrush}"/>
+                        <DataTemplate DataType="transform:MessageWindow">
+                            <TextBlock Text="{Binding DisplayName}" Foreground="{Binding DisplayBrush}" Margin="{Binding DisplayMargin}"/>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
