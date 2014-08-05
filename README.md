@@ -4,9 +4,7 @@ Esthar
 Final Fantasy VIII resource editor.
 
 Dependency:
-Xceed.*.dll - https://wpftoolkit.codeplex.com/
-OpenTK.*.dll - http://www.opentk.com/
-ICSharpCode.*.dll - https://github.com/icsharpcode/SharpDevelop/wiki/AvalonEdit
+NuGet
 
 Ignored warnings:
 "Dependencies\x64\d3dcompiler_46.dll"
