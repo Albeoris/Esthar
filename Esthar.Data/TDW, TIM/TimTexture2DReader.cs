@@ -3,7 +3,6 @@ using System.Drawing.Imaging;
 using System.IO;
 using Esthar.Core;
 using Esthar.OpenGL;
-using SharpDX.Direct3D9;
 
 namespace Esthar.Data
 {
