@@ -3,6 +3,8 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <StackPanel Orientation="Horizontal">
         <Button Style="{StaticResource XamlIconStyle}" Content="{StaticResource SaveIcon}" Click="OnSaveButtonClick"/>
-        <Button Style="{StaticResource XamlIconStyle}" Content="{StaticResource UploadIcon}" Click="OnUploadButtonClick"/>
+        <Button Style="{StaticResource XamlIconStyle}" Content="{StaticResource UploadIcon}" Click="OnExportButtonClick"/>
+        <Button Style="{StaticResource XamlIconStyle}" Content="{StaticResource InboxIcon}" Click="OnInboxButtonClick"/>
+        <Button Style="{StaticResource XamlIconStyle}" Content="{StaticResource OutboxIcon}" Click="OnOutboxButtonClick"/>
     </StackPanel>
 </UserControl>
