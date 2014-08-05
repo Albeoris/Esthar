@@ -102,9 +102,33 @@ namespace Esthar.Data.Transform
             throw new NotImplementedException();
         }
 
-        public void WriteScripts(AsmCollection scripts)
+        public void WriteScripts(AsmCollection asmCollection)
         {
+            ArchiveFileEntry jsmEntry = (ArchiveFileEntry)_locationDirectory.Childs.TryGetValue(_name + ".jsm");
+            if (jsmEntry == null)
+                return;
+
             throw new NotImplementedException();
+
+            JsmHeader header = new JsmHeader();
+            JsmGroup[] groups = null;
+            JsmScript[] scripts = null;
+            JsmOperation[] opertations = null;
+
+            using (JsmFileWriter jsmWriter = new JsmFileWriter(jsmEntry.OpenWritableCapacityStream()))
+            {
+                jsmWriter.WriteScripts(header, groups, scripts, opertations);
+            }
+
+            ArchiveFileEntry symEntry = (ArchiveFileEntry)_locationDirectory.Childs.TryGetValue(_name + ".sym");
+            if (symEntry == null)
+                return;
+
+            //using (SymFileWriter symWriter = new SymFileWriter(symEntry.OpenWritableCapacityStream()))
+            //{
+            //}
+
+            return;
         }
 
         public void WriteModels(SafeHGlobalHandle oneContent)

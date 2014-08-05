@@ -115,6 +115,7 @@
     <Compile Include="INF\InfFileReader.cs" />
     <Compile Include="INF\InfGateway.cs" />
     <Compile Include="INF\InfTrigger.cs" />
+    <Compile Include="JSM, SYM\JsmFileWriter.cs" />
     <Compile Include="JSM, SYM\JsmFileReader.cs" />
     <Compile Include="JSM, SYM\JsmGroup.cs" />
     <Compile Include="JSM, SYM\AsmModuleType.cs" />
