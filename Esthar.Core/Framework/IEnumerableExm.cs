@@ -20,5 +20,11 @@ namespace Esthar.Core
         {
             return self.OrderBy(t => t);
         }
+
+        public static IEnumerable<T> DistinctBy<T, TValue>(this IEnumerable<T> self, Func<T, TValue> predicate)
+        {
+            HashSet<TValue> set = new HashSet<TValue>();
+            return self.Where(item => set.Add(predicate(item)));
+        }
     }
 }

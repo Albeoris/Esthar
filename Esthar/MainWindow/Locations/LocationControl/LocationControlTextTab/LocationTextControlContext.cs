@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Esthar.Core;
 using Esthar.Data.Transform;
@@ -82,7 +83,7 @@ namespace Esthar
         {
             List<MessageWindow> windows = null;
             if (Location != null)
-                windows = Location.MessageWindows;
+                windows = Location.MessageWindows.DistinctBy(wnd=>wnd.MessageId).ToList();
 
             List.Dispatcher.Invoke(() => List.SetMessageWindows(windows));
         }

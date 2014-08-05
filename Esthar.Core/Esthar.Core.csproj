@@ -105,6 +105,7 @@
     <Compile Include="Framework\DisposableBeginEndActions.cs" />
     <Compile Include="Framework\EventWaitHandleExm.cs" />
     <Compile Include="Framework\IntPtrExm.cs" />
+    <Compile Include="Framework\LambdaComparer.cs" />
     <Compile Include="Framework\ListExm.cs" />
     <Compile Include="Framework\SDisposable.cs" />
     <Compile Include="Languages\Lang.cs" />
