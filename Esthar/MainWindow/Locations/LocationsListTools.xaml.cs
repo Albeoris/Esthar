@@ -92,7 +92,7 @@ namespace Esthar
                 FileInfo targetFile = targetFiles.FirstOrDefault(tf => tf.Name.Equals(sourceFile.Name, StringComparison.OrdinalIgnoreCase));
                 if (targetFile == null || targetFile.LastWriteTimeUtc != sourceFile.LastWriteTimeUtc || sourceFile.Length != targetFile.Length)
                 {
-                    sourceFile.CopyTo(Path.Combine(target.FullName, sourceFile.Name));
+                    sourceFile.CopyTo(Path.Combine(target.FullName, sourceFile.Name), true);
                     filesCount++;
                 }
             }
