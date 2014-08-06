@@ -143,5 +143,33 @@ namespace Esthar.Data
 
             throw new NotImplementedException();
         }
+
+        public SortedList<int, ArchiveFileEntry> GetOrderedFileEntries()
+        {
+            SortedList<int, ArchiveFileEntry> list = new SortedList<int, ArchiveFileEntry>();
+
+            foreach (ArchiveEntryBase entry in Childs)
+            {
+                switch (entry.Type)
+                {
+                    case ArchiveEntryType.Archive:
+                    {
+                        ArchiveArchiveEntry archiveEntry = (ArchiveArchiveEntry)entry;
+                        list.Add(archiveEntry.MetricsEntry.Index, archiveEntry.MetricsEntry);
+                        list.Add(archiveEntry.ListingEntry.Index, archiveEntry.ListingEntry);
+                        list.Add(archiveEntry.ContentEntry.Index, archiveEntry.ContentEntry);
+                        break;
+                    }
+                    case ArchiveEntryType.File:
+                    {
+                        ArchiveFileEntry fileEntry = (ArchiveFileEntry)entry;
+                        list.Add(fileEntry.Index, fileEntry);
+                        break;
+                    }
+                }
+            }
+
+            return list;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Esthar.Core;
@@ -28,14 +29,16 @@ namespace Esthar.Data
 
         public void Uncompress()
         {
-            foreach (ArchiveArchiveEntry archive in _info.RootArchive.Childs.OfType<ArchiveArchiveEntry>())
-                Uncompress(archive.MetricsEntry);
-            foreach (ArchiveArchiveEntry archive in _info.RootArchive.Childs.OfType<ArchiveArchiveEntry>())
-                Uncompress(archive.ListingEntry);
-            foreach (ArchiveArchiveEntry archive in _info.RootArchive.Childs.OfType<ArchiveArchiveEntry>())
-                Uncompress(archive.ContentEntry);
-            foreach (ArchiveFileEntry file in _info.RootArchive.Childs.OfType<ArchiveFileEntry>())
-                Uncompress(file);
+            foreach (KeyValuePair<int, ArchiveFileEntry> fileEntry in _info.RootArchive.GetOrderedFileEntries())
+                Uncompress(fileEntry.Value);
+            //foreach (ArchiveArchiveEntry archive in _info.RootArchive.Childs.OfType<ArchiveArchiveEntry>())
+            //    Uncompress(archive.MetricsEntry);
+            //foreach (ArchiveArchiveEntry archive in _info.RootArchive.Childs.OfType<ArchiveArchiveEntry>())
+            //    Uncompress(archive.ListingEntry);
+            //foreach (ArchiveArchiveEntry archive in _info.RootArchive.Childs.OfType<ArchiveArchiveEntry>())
+            //    Uncompress(archive.ContentEntry);
+            //foreach (ArchiveFileEntry file in _info.RootArchive.Childs.OfType<ArchiveFileEntry>())
+            //    Uncompress(file);
         }
 
         private void Uncompress(ArchiveFileEntry file)

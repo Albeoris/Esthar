@@ -98,7 +98,7 @@ namespace Esthar.Data
                 using (MemoryMappedViewStream memory = memoryFile.CreateViewStream(source.MetricsEntry.GetAbsoluteOffset(), source.MetricsEntry.UncompressedContentSize))
                 using (BinaryWriter bw = new BinaryWriter(memory))
                 {
-                    foreach (ArchiveFileEntry file in target.Childs.OfType<ArchiveFileEntry>())
+                    foreach (ArchiveFileEntry file in target.GetOrderedFileEntries().Values)
                     {
                         bw.Write(file.UncompressedContentSize);
                         bw.Write(file.ContentOffset);
@@ -107,26 +107,6 @@ namespace Esthar.Data
 
                     ArchiveArchiveEntry[] childSourceArrays = source.Childs.OfType<ArchiveArchiveEntry>().ToArray();
                     ArchiveArchiveEntry[] childTargetArrays = target.Childs.OfType<ArchiveArchiveEntry>().ToArray();
-
-                    foreach (ArchiveFileEntry file in childTargetArrays.Select(a => a.MetricsEntry))
-                    {
-                        bw.Write(file.UncompressedContentSize);
-                        bw.Write(file.ContentOffset);
-                        bw.Write((int)Compression.None);
-                    }
-                    foreach (ArchiveFileEntry file in childTargetArrays.Select(a => a.ListingEntry))
-                    {
-                        bw.Write(file.UncompressedContentSize);
-                        bw.Write(file.ContentOffset);
-                        bw.Write((int)Compression.None);
-                    }
-                    foreach (ArchiveFileEntry file in childTargetArrays.Select(a => a.ContentEntry))
-                    {
-                        bw.Write(file.UncompressedContentSize);
-                        bw.Write(file.ContentOffset);
-                        bw.Write((int)Compression.None);
-                    }
-
                     CorrectOffsets(memoryFile, childSourceArrays, childTargetArrays);
                 }
             }
@@ -256,27 +236,7 @@ namespace Esthar.Data
             using (Stream output = new FileStream(targetInfo.MetricFilePath, FileMode.Create, FileAccess.Write, FileShare.None))
             using (BinaryWriter bw = new BinaryWriter(output))
             {
-                foreach (ArchiveFileEntry file in targetInfo.RootArchive.Childs.OfType<ArchiveFileEntry>())
-                {
-                    bw.Write(file.UncompressedContentSize);
-                    bw.Write(file.ContentOffset);
-                    bw.Write((int)Compression.None);
-                }
-
-                ArchiveArchiveEntry[] childTargetArrays = targetInfo.RootArchive.Childs.OfType<ArchiveArchiveEntry>().ToArray();
-                foreach (ArchiveFileEntry file in childTargetArrays.Select(a => a.MetricsEntry))
-                {
-                    bw.Write(file.UncompressedContentSize);
-                    bw.Write(file.ContentOffset);
-                    bw.Write((int)Compression.None);
-                }
-                foreach (ArchiveFileEntry file in childTargetArrays.Select(a => a.ListingEntry))
-                {
-                    bw.Write(file.UncompressedContentSize);
-                    bw.Write(file.ContentOffset);
-                    bw.Write((int)Compression.None);
-                }
-                foreach (ArchiveFileEntry file in childTargetArrays.Select(a => a.ContentEntry))
+                foreach (ArchiveFileEntry file in targetInfo.RootArchive.GetOrderedFileEntries().Values)
                 {
                     bw.Write(file.UncompressedContentSize);
                     bw.Write(file.ContentOffset);
