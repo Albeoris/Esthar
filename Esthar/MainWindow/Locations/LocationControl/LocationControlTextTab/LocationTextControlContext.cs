@@ -59,7 +59,7 @@ namespace Esthar
 
         private void OnLocationSaveRequested(LocationProperty saveRequest)
         {
-            if ((saveRequest & LocationProperty.Monologues) == LocationProperty.Monologues)
+            if ((saveRequest & LocationProperty.Monologues) == LocationProperty.Monologues && Window != null)
             {
                 string text = GetCurrentText();
                 Window.Message.Current = LocalizableString.ReturnNewLine(text);
