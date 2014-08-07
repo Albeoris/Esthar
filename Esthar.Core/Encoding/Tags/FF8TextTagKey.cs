@@ -10,10 +10,10 @@ namespace Esthar.Core
         EscapeKey2 = 0x21,
         [Display(Name = "Menu", Description = "Меню")]
         Menu = 0x24,
+        [Display(Name = "Cancel", Description = "Отмена")]
+        Cancel = 0x25,
         [Display(Name = "Confirm", Description = "Подтверждение")]
-        Confirm = 0x25,
-        [Display(Name = "Cancel", Description = "Отмены")]
-        Cancel = 0x26,
+        Confirm = 0x26,
         [Display(Name = "Cards", Description = "Игра в карты")]
         Cards = 0x27,
         [Display(Name = "Select", Description = "Select")]
