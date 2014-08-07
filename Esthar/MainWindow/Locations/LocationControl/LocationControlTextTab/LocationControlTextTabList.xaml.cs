@@ -50,7 +50,7 @@ namespace Esthar
 
         private void OnKeyUpEvent(object sender, KeyEventArgs e)
         {
-            if (e.Key != Key.Insert || (Keyboard.Modifiers & ModifierKeys.Shift) != ModifierKeys.Shift)
+            if (e.Key != Key.Enter || (Keyboard.Modifiers & ModifierKeys.Shift) != ModifierKeys.Shift)
                 return;
 
             ListBoxItem item = sender as ListBoxItem;
@@ -67,7 +67,7 @@ namespace Esthar
 
         private void OnPreviewMouseMoveEvent(object sender, MouseEventArgs e)
         {
-            if (e.LeftButton != MouseButtonState.Pressed)
+            if (e.LeftButton != MouseButtonState.Pressed || (Keyboard.Modifiers & ModifierKeys.Shift) != ModifierKeys.Shift)
                 return;
 
             ListBoxItem draggedItem = sender as ListBoxItem;
