@@ -46,11 +46,10 @@ namespace Esthar.OpenGL
         private const string FragmentShaderSource = @"uniform sampler2D texture;
 uniform sampler2D palette;
 uniform int paletteIndex;
-layout (origin_upper_left) in vec4 gl_FragCoord;
 
 void main()
 {
-	int colorIndex = int(texture2D(texture, gl_TexCoord[0].xy, 0).r * 255);
+	int colorIndex = int(texture2D(texture, gl_TexCoord[0].xy, 0.0).r * 255);
 	gl_FragColor = texelFetch(palette, ivec2(colorIndex, paletteIndex), 0);
 }";
 

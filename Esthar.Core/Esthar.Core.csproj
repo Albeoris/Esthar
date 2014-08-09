@@ -149,6 +149,8 @@
     <Compile Include="Components\Vector3Int32.cs" />
     <Compile Include="Components\Vector3.cs" />
     <Compile Include="WinAPI\NativeMethods.cs" />
+    <Compile Include="WinAPI\ShellFileSystemInfo.cs" />
+    <Compile Include="WinAPI\SHGetFileInfoFlags.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Options\" />

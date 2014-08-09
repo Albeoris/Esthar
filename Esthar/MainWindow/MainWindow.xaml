@@ -8,11 +8,15 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <esthar:MainMenu Grid.Row="0"/>
         <esthar:MainTabs x:Name="MainTabs" Grid.Row="1"/>
         <!--<esthar:MainTree Grid.Row="1" Grid.Column="0"/>-->
         <!--<GridSplitter Grid.Row="1" Grid.Column="1" Width="3" HorizontalAlignment="Left"/>-->
+        <StatusBar Grid.Row="2">
+            <StackPanel x:Name="BottomPanel" Orientation="Horizontal"/>
+        </StatusBar>
     </Grid>
 </Window>

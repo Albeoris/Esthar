@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Xml;
 
 namespace Esthar.Core
@@ -118,6 +119,12 @@ namespace Esthar.Core
                 string altPath = Path.Combine(path, GameDataDirectorySubName);
                 return Directory.Exists(altPath) ? altPath : path;
             }
+        }
+
+        public static string FindGameExecutablePath()
+        {
+            string[] executables = Directory.GetFiles(GameDirectory, GameExecutableMask);
+            return executables.FirstOrDefault(file => Regex.IsMatch(file, GameExecutablesExpression));
         }
 
         public static IEnumerable<string> GetGameArchivesPaths()

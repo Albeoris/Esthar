@@ -135,6 +135,7 @@
     <Compile Include="Annotations.cs" />
     <Compile Include="AttachedProperties\AP.cs" />
     <Compile Include="BindingDataTemplate.cs" />
+    <Compile Include="BitmapConverter.cs" />
     <Compile Include="Controls\ScrollViewerWindowsFormsHost.cs" />
     <Compile Include="Controls\FilterControl.xaml.cs">
       <DependentUpon>FilterControl.xaml</DependentUpon>
@@ -153,6 +154,7 @@
     <Compile Include="Dialogs\FontChooser\NameDictionaryHelper.cs" />
     <Compile Include="Dialogs\FontChooser\TypefaceListItem.cs" />
     <Compile Include="Dialogs\FontChooser\TypographicFeatureListItem.cs" />
+    <Compile Include="FileSystem\ShellHelper.cs" />
     <Compile Include="FrameworkElementExm.cs" />
     <Compile Include="NotifyPropertyChangedBase.cs" />
     <Compile Include="Options\Controls\ArchiveInformationView.cs" />
