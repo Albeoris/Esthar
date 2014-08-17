@@ -67,7 +67,7 @@ namespace Esthar.OpenGL
             for (int i = 0; i < 256; i++)
             {
                 input.EnsureRead(buff, 0, 3);
-                //buff.Swap(0, 2);
+                buff.Swap(0, 2);
                 pixelsOutput.Write(buff, 0, 4);
             }
 

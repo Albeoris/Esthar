@@ -82,6 +82,40 @@ namespace Esthar
                 _tagCompletionWindow.Closed += (o, args) => _tagCompletionWindow = null;
                 _tagCompletionWindow.Show();
             }
+            else if (e.Text == "\"")
+            {
+                int position = TextEditorInstance.TextArea.Caret.Offset - 1;
+
+                string finded;
+                int pageBegin = StringHelper.IndexOfAny(TextEditorInstance.Text, position, int.MinValue, out finded, FF8TextTag.PageSeparator);
+                if (pageBegin < 0) pageBegin = 0; else pageBegin += finded.Length + 1;
+
+                int pageEnd = StringHelper.IndexOfAny(TextEditorInstance.Text, position, int.MaxValue, out finded, FF8TextTag.PageSeparator);
+                if (pageEnd < 0) pageEnd = TextEditorInstance.Text.Length;                
+
+                if (TextEditorInstance.Text.IndexOf('“', pageBegin, position - pageBegin) < 0)
+                {
+                    TextEditorInstance.Document.Replace(position, 1, "“");
+                }
+                else if (TextEditorInstance.Text.LastIndexOf('”', pageEnd - 1, pageEnd - pageBegin - 1) < 0)
+                {
+                    TextEditorInstance.Document.Replace(position, 1, "”");
+                }
+                else
+                {
+                    int lineBegin = TextEditorInstance.Text.LastIndexOf('\n', position, position - pageBegin);
+                    if (lineBegin < 0) lineBegin = 0;
+
+                    string repl;
+                    int index = TextEditorInstance.Text.LastIndexOfAny(new[] {'«', '»'}, position, position - lineBegin);
+                    if (index < 0)
+                        repl = "«";
+                    else
+                        repl = TextEditorInstance.Text[index] == '«' ? "»" : "«";
+                    
+                    TextEditorInstance.Document.Replace(position, 1, repl);
+                }
+            }
         }
 
         private void OnTextEntering(object sender, TextCompositionEventArgs e)

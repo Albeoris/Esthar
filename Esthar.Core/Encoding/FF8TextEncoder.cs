@@ -27,7 +27,7 @@
                     int offset = 0;
                     result += tag.Write(buff, ref offset);
                 }
-                else
+                else if (FF8TextComment.TryRead(chars, ref index, ref count) == null)
                 {
                     count--;
                     result++;
@@ -49,7 +49,7 @@
                 {
                     result += tag.Write(bytes, ref byteIndex);
                 }
-                else
+                else if (FF8TextComment.TryRead(chars, ref charIndex, ref charCount) == null)
                 {
                     bytes[byteIndex++] = _codepage[chars[charIndex++]];
                     charCount--;

@@ -5,10 +5,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Esthar.Core;
-using Esthar.OpenGL;
 using Esthar.UI;
-using OpenTK.Graphics.OpenGL;
-using PixelFormat = System.Drawing.Imaging.PixelFormat;
 
 namespace Esthar
 {

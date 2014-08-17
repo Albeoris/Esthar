@@ -1,6 +1,7 @@
 ﻿<SyntaxDefinition name="FF8Text"
         xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
 
+  <Color name="Comment" foreground="Green"/>
   <Color name="UnknownTag" foreground="#FF0000"/>
   <Color name="KnownTag" foreground="#4169E1"/>
   <Color name="ColorTagDisabled" foreground="#000000"/>
@@ -18,6 +19,14 @@
       <Word>{Speaker}</Word>
     </Keywords>
 
+    <Span color="Comment" multiline="true">
+      <Begin>/\*</Begin>
+      <End>\*/</End>
+    </Span>
+    <Span color="Comment" multiline="false">
+      <Begin>//</Begin>
+    </Span>
+    
     <Span fontWeight="bold" color="KnownTag" begin="\{Char\s{1}\b" end="\}">
       <RuleSet>
         <Keywords>

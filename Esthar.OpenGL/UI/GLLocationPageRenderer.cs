@@ -92,7 +92,7 @@ namespace Esthar.OpenGL
                 {
                     DrawTag(tag);
                 }
-                else
+                else if (FF8TextComment.TryRead(_text, ref _charIndex, ref _charsLeft) == null)
                 {
                     DrawChar(_text[_charIndex++]);
                     _charsLeft--;
