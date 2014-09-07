@@ -61,12 +61,14 @@ namespace Esthar.OpenGL
 
             byte[] buff = new byte[4];
             paletteStream.EnsureRead(buff, 0, 4);
+            buff.Swap(0, 2);
             output.Write(buff, 0, 3);
             bool hasTransperentColor = buff[3] == 0;
 
             for (int i = 0; i < 255; i++)
             {
                 paletteStream.Read(buff, 0, 4);
+                buff.Swap(0, 2);
                 output.Write(buff, 0, 3);
             }
 

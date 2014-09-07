@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Xml;
 using Esthar.Core;
 
@@ -45,9 +46,12 @@ namespace Esthar.Data.Transform
             return text.Replace(FF8TextTag.LineSeparator[0], Environment.NewLine).Replace(FF8TextTag.PageSeparator[0], Environment.NewLine + FF8TextTag.PageSeparator[0] + Environment.NewLine);
         }
 
+        private static readonly string EscapedNewLine = Regex.Escape(Environment.NewLine);
+        private static readonly Regex PageSeparatorRegex = new Regex(EscapedNewLine + @"\s*" + Regex.Escape(FF8TextTag.PageSeparator[0]) + @"\s*" + EscapedNewLine, RegexOptions.Compiled | RegexOptions.Multiline, TimeSpan.FromSeconds(1));
+
         public static string ReturnNewLine(string text)
         {
-            return text.TrimEnd().Replace(Environment.NewLine + FF8TextTag.PageSeparator[0] + Environment.NewLine, FF8TextTag.PageSeparator[0]).Replace(Environment.NewLine, FF8TextTag.LineSeparator[0]);
+            return PageSeparatorRegex.Replace(text.TrimEnd(),  FF8TextTag.PageSeparator[0]).Replace(Environment.NewLine, FF8TextTag.LineSeparator[0]);
         }
 
         public bool MatchFilter(string text)

@@ -67,6 +67,9 @@ namespace Esthar
         {
             try
             {
+                if (MessageBox.Show("Вы уверены, что хотите заменить существующие рабочие файлы?\r\nВсе изменения будут потеряны!", "Предупреждение!", MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.Yes)
+                    return;
+
                 int filesCopied = 0;
                 DirectoryInfo source = new DirectoryInfo(Options.CVSDirectory);
                 DirectoryInfo target = new DirectoryInfo(Options.WorkingDirectory);
