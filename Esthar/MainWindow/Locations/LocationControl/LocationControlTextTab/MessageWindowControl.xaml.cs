@@ -118,10 +118,10 @@ namespace Esthar
             WindowXControl.Value = messageWindow.X * 2;
             WindowYControl.Value = messageWindow.Y * 2;
 
-            WindowFirstAnswerControl.IsEnabled = messageWindow.IsQuestion;
-            WindowLastAnswerControl.IsEnabled = messageWindow.IsQuestion;
-            WindowDefaultAnswerControl.IsEnabled = messageWindow.IsQuestion;
-            WindowCancelAnswerControl.IsEnabled = messageWindow.IsQuestion;
+            WindowFirstAnswerControl.IsEnabled = messageWindow.IsQuestion && !messageWindow.IsDynamic;
+            WindowLastAnswerControl.IsEnabled = messageWindow.IsQuestion && !messageWindow.IsDynamic;
+            WindowDefaultAnswerControl.IsEnabled = messageWindow.IsQuestion && !messageWindow.IsDynamic;
+            WindowCancelAnswerControl.IsEnabled = messageWindow.IsQuestion && !messageWindow.IsDynamic;
             WindowFirstAnswerControl.Value = messageWindow.FirstAnswerLine;
             WindowLastAnswerControl.Value = messageWindow.LastAnswerLine;
             WindowDefaultAnswerControl.Value = messageWindow.DefaultAnswerLine;

@@ -315,6 +315,19 @@
     <Folder Include="Commands\" />
     <Folder Include="GitHub\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Edea32x32.png" />
+    <Resource Include="Resources\Icons\Irvine32x32.png" />
+    <Resource Include="Resources\Icons\Kiros32x32.png" />
+    <Resource Include="Resources\Icons\Laguna32x32.png" />
+    <Resource Include="Resources\Icons\Quistis32x32.png" />
+    <Resource Include="Resources\Icons\Rinoa32x32.png" />
+    <Resource Include="Resources\Icons\Seifer32x32.png" />
+    <Resource Include="Resources\Icons\Selphie32x32.png" />
+    <Resource Include="Resources\Icons\Squall32x32.png" />
+    <Resource Include="Resources\Icons\Ward32x32.png" />
+    <Resource Include="Resources\Icons\Zell32x32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

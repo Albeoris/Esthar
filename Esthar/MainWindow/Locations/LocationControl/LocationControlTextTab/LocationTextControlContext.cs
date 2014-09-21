@@ -83,13 +83,16 @@ namespace Esthar
         {
             List<MessageWindow> windows = null;
             if (Location != null)
-                windows = Location.MessageWindows.DistinctBy(wnd=>wnd.MessageId).ToList();
+                windows = Location.MessageWindows.DistinctBy(wnd => wnd.MessageId).ToList();
 
             List.Dispatcher.Invoke(() => List.SetMessageWindows(windows));
         }
 
         private void UpdatePrviewBackground()
         {
+            if (Location == null)
+                return;
+
             GLLocationRenderer.Initialize(GameFont.HiResFont.GetRenderer(), ResourcesAccessor.CursorImage, ResourcesAccessor.DisabledCursorImage);
             GLLocationRenderer.SetBackground(Location.GetBackgroundReader());
             UpdatePreviewText(null);
@@ -102,7 +105,13 @@ namespace Esthar
 
         public void SaveRequest(LocationProperty property)
         {
-            Location.SaveRequest |= property;
+            if (Location != null)
+                Location.SaveRequest |= property;
+        }
+
+        public void InsertCharater(FF8TextTagCharacter tag)
+        {
+            Edit.Dispatcher.Invoke(() => Edit.InsertCharater(tag));
         }
     }
 }

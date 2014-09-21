@@ -53,6 +53,9 @@ namespace Esthar
 
         private void OnTextChanged(object sender, EventArgs e)
         {
+            if (Context.Location == null)
+                return;
+
             Context.UpdateTrigger.Set();
             if (!_windowChanging)
                 Context.SaveRequest(LocationProperty.Monologues);
@@ -63,6 +66,7 @@ namespace Esthar
             _windowChanging = true;
             TextEditorInstance.Document.Text = window == null ? string.Empty : LocalizableString.ResolveNewLine(window.Message.Current);
             TextBoxInstance.Text = window == null ? string.Empty : LocalizableString.ResolveNewLine(window.Message.Original);
+            TextEditorInstance.Document.UndoStack.ClearAll();
             _windowChanging = false;
         }
 
@@ -232,5 +236,10 @@ namespace Esthar
         }
 
         #endregion
+
+        public void InsertCharater(FF8TextTagCharacter tag)
+        {
+            TextEditorInstance.TextArea.Selection.ReplaceSelectionWithText(new FF8TextTag(FF8TextTagCode.Char, tag).ToString());
+        }
     }
 }

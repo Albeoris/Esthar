@@ -156,6 +156,9 @@
     <Compile Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabEdit.xaml.cs">
       <DependentUpon>LocationControlTextTabEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabPanel.xaml.cs">
+      <DependentUpon>LocationControlTextTabPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabList.xaml.cs">
       <DependentUpon>LocationControlTextTabList.xaml</DependentUpon>
     </Compile>
@@ -222,6 +225,10 @@
     <Page Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow\Locations\LocationControl\LocationControlTextTab\LocationControlTextTabList.xaml">
       <SubType>Designer</SubType>

@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:esthar="clr-namespace:Esthar"
+             xmlns:core="clr-namespace:Esthar.Core;assembly=Esthar.Core"
              Header="Текст">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -9,9 +10,13 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-
-        <esthar:LocationControlTextTabList DataContext="{Binding}" x:Name="_list" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <esthar:LocationControlTextTabEdit DataContext="{Binding SelectedMonologue, ElementName=_list, Mode=OneWay}" x:Name="_edit" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <esthar:LocationControlTextTabPreview DataContext="{Binding}" x:Name="_preview" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <esthar:LocationControlTextTabPanel DataContext="{Binding}" x:Name="_panel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <esthar:LocationControlTextTabList DataContext="{Binding}" x:Name="_list" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <esthar:LocationControlTextTabEdit DataContext="{Binding SelectedMonologue, ElementName=_list, Mode=OneWay}" Grid.Row="1" x:Name="_edit" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <esthar:LocationControlTextTabPreview DataContext="{Binding}" x:Name="_preview" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </TabItem>

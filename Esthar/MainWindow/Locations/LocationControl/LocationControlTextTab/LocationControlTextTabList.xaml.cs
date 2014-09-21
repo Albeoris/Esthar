@@ -82,8 +82,14 @@ namespace Esthar
             MessageWindow droppedWindow = (MessageWindow)e.Data.GetData(typeof(MessageWindow));
             MessageWindow targetWindow = (MessageWindow)((ListBoxItem)sender).DataContext;
 
+            if (droppedWindow == null || targetWindow == null || droppedWindow == targetWindow)
+                return;
+
             int oldIndex = droppedWindow.Order;
-            int newIndex = targetWindow.Order + 1;
+            int newIndex = targetWindow.Order;
+            if (targetWindow.Order < droppedWindow.Order)
+                newIndex++;
+
             droppedWindow.Order = newIndex;
             
             if (newIndex < oldIndex)

@@ -1,0 +1,44 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:core="clr-namespace:Esthar.Core;assembly=Esthar.Core"
+    mc:Ignorable="d"
+    x:Class="Esthar.LocationControlTextTabPanel">
+    <StackPanel SnapsToDevicePixels="True" Orientation="Horizontal">
+        <Button Background="Transparent" BorderBrush="Transparent" Tag="{x:Static core:FF8TextTagCharacter.Squall}" Click="OnCharacterButtonClick">
+            <Image Width="32" Height="32" Source="pack://application:,,,/Esthar.UI;component/Resources/Icons/Squall32x32.png"/>
+        </Button>
+        <Button Background="Transparent" BorderBrush="Transparent" Tag="{x:Static core:FF8TextTagCharacter.Zell}" Click="OnCharacterButtonClick">
+            <Image Width="32" Height="32" Source="pack://application:,,,/Esthar.UI;component/Resources/Icons/Zell32x32.png"/>
+        </Button>
+        <Button Background="Transparent" BorderBrush="Transparent" Tag="{x:Static core:FF8TextTagCharacter.Irvine}" Click="OnCharacterButtonClick">
+            <Image Width="32" Height="32" Source="pack://application:,,,/Esthar.UI;component/Resources/Icons/Irvine32x32.png"/>
+        </Button>
+        <Button Background="Transparent" BorderBrush="Transparent" Tag="{x:Static core:FF8TextTagCharacter.Quistis}" Click="OnCharacterButtonClick">
+            <Image Width="32" Height="32" Source="pack://application:,,,/Esthar.UI;component/Resources/Icons/Quistis32x32.png"/>
+        </Button>
+        <Button Background="Transparent" BorderBrush="Transparent" Tag="{x:Static core:FF8TextTagCharacter.Rinoa}" Click="OnCharacterButtonClick">
+            <Image Width="32" Height="32" Source="pack://application:,,,/Esthar.UI;component/Resources/Icons/Rinoa32x32.png"/>
+        </Button>
+        <Button Background="Transparent" BorderBrush="Transparent" Tag="{x:Static core:FF8TextTagCharacter.Selphie}" Click="OnCharacterButtonClick">
+            <Image Width="32" Height="32" Source="pack://application:,,,/Esthar.UI;component/Resources/Icons/Selphie32x32.png"/>
+        </Button>
+        <Button Background="Transparent" BorderBrush="Transparent" Tag="{x:Static core:FF8TextTagCharacter.Seifer}" Click="OnCharacterButtonClick">
+            <Image Width="32" Height="32" Source="pack://application:,,,/Esthar.UI;component/Resources/Icons/Seifer32x32.png"/>
+        </Button>
+        <Button Background="Transparent" BorderBrush="Transparent" Tag="{x:Static core:FF8TextTagCharacter.Edea}" Click="OnCharacterButtonClick">
+            <Image Width="32" Height="32" Source="pack://application:,,,/Esthar.UI;component/Resources/Icons/Edea32x32.png"/>
+        </Button>
+        <Button Background="Transparent" BorderBrush="Transparent" Tag="{x:Static core:FF8TextTagCharacter.Laguna}" Click="OnCharacterButtonClick">
+            <Image Width="32" Height="32" Source="pack://application:,,,/Esthar.UI;component/Resources/Icons/Laguna32x32.png"/>
+        </Button>
+        <Button Background="Transparent" BorderBrush="Transparent" Tag="{x:Static core:FF8TextTagCharacter.Kiros}" Click="OnCharacterButtonClick">
+            <Image Width="32" Height="32" Source="pack://application:,,,/Esthar.UI;component/Resources/Icons/Kiros32x32.png"/>
+        </Button>
+        <Button Background="Transparent" BorderBrush="Transparent" Tag="{x:Static core:FF8TextTagCharacter.Ward}" Click="OnCharacterButtonClick">
+            <Image Width="32" Height="32" Source="pack://application:,,,/Esthar.UI;component/Resources/Icons/Ward32x32.png"/>
+        </Button>
+    </StackPanel>
+</UserControl>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
+using Esthar.Core;
 using Esthar.Data.Transform;
 using Esthar.UI;
 
@@ -18,6 +20,7 @@ namespace Esthar
             InitializeComponent();
             _context = new LocationTextControlContext(_list, _edit, _preview);
             _watcher = new LocationTextWatcher(_context);
+            _panel.LocationContext = _context;
             DataContextChanged += OnDataContextChanged;
         }
 

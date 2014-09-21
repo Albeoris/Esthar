@@ -12,13 +12,20 @@ namespace Esthar.Data.Transform
         {
             switch (command.NativeOperation.Command)
             {
-                case JsmCommand.MES: return FromCommand((AsmMessageCommand)command);
-                case JsmCommand.AMES: return FromCommand((AsmAppearMessageCommand)command);
-                case JsmCommand.AMESW: return FromCommand((AsmAppearMessageAndWaitCommand)command);
-                case JsmCommand.RAMESW: return FromCommand((AsmResumeScriptAppearMessageAndWaitCommand)command);
-                case JsmCommand.ASK: return FromCommand((AsmAskCommand)command);
-                case JsmCommand.AASK: return FromCommand((AsmAppearAskCommand)command);
-                default: throw new NotImplementedException();
+                case JsmCommand.MES:
+                    return FromCommand((AsmMessageCommand)command);
+                case JsmCommand.AMES:
+                    return FromCommand((AsmAppearMessageCommand)command);
+                case JsmCommand.AMESW:
+                    return FromCommand((AsmAppearMessageAndWaitCommand)command);
+                case JsmCommand.RAMESW:
+                    return FromCommand((AsmResumeScriptAppearMessageAndWaitCommand)command);
+                case JsmCommand.ASK:
+                    return FromCommand((AsmAskCommand)command);
+                case JsmCommand.AASK:
+                    return FromCommand((AsmAppearAskCommand)command);
+                default:
+                    throw new NotImplementedException();
             }
         }
 
@@ -78,6 +85,11 @@ namespace Esthar.Data.Transform
                 _lastAnswerLine = lastAnswerLine;
                 _defaultAnswerLine = defaultAnswerLine;
                 _cancelAnswerLine = cancelAnswerLine;
+                IsDynamic = IsDynamic || (
+                    firstAnswerLine.Type != AsmValueSourceType.Static ||
+                    lastAnswerLine.Type != AsmValueSourceType.Static ||
+                    defaultAnswerLine.Type != AsmValueSourceType.Static ||
+                    cancelAnswerLine.Type != AsmValueSourceType.Static);
                 IsQuestion = true;
             }
         }
@@ -144,40 +156,40 @@ namespace Esthar.Data.Transform
 
         public int FirstAnswerLine
         {
-            get { return IsQuestion ? _firstAnswerLine.ResolveValue() : -1; }
+            get { return IsQuestion && !IsDynamic ? _firstAnswerLine.ResolveValue() : -1; }
             set
             {
-                if (!IsQuestion) throw new InvalidOperationException();
+                if (!IsQuestion || IsDynamic) throw new InvalidOperationException();
                 _firstAnswerLine.SetAbsoluteValue(value);
             }
         }
 
         public int LastAnswerLine
         {
-            get { return IsQuestion ? _lastAnswerLine.ResolveValue() : -1; }
+            get { return IsQuestion && !IsDynamic ? _lastAnswerLine.ResolveValue() : -1; }
             set
             {
-                if (!IsQuestion) throw new InvalidOperationException();
+                if (!IsQuestion || IsDynamic) throw new InvalidOperationException();
                 _lastAnswerLine.SetAbsoluteValue(value);
             }
         }
 
         public int DefaultAnswerLine
         {
-            get { return IsQuestion ? _defaultAnswerLine.ResolveValue() : -1; }
+            get { return IsQuestion && !IsDynamic ? _defaultAnswerLine.ResolveValue() : -1; }
             set
             {
-                if (!IsQuestion) throw new InvalidOperationException();
+                if (!IsQuestion || IsDynamic) throw new InvalidOperationException();
                 _defaultAnswerLine.SetAbsoluteValue(value);
             }
         }
 
         public int CancelAnswerLine
         {
-            get { return IsQuestion ? _cancelAnswerLine.ResolveValue() : -1; }
+            get { return IsQuestion && !IsDynamic ? _cancelAnswerLine.ResolveValue() : -1; }
             set
             {
-                if (!IsQuestion) throw new InvalidOperationException();
+                if (!IsQuestion || IsDynamic) throw new InvalidOperationException();
                 _cancelAnswerLine.SetAbsoluteValue(value);
             }
         }
