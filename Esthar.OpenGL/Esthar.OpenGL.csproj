@@ -116,6 +116,7 @@
     <Compile Include="Shaders\GLShader.cs" />
     <Compile Include="Shaders\GLShaderProgram.cs" />
     <Compile Include="Shaders\GLShaders.cs" />
+    <Compile Include="Textures\GLFramebuffer.cs" />
     <Compile Include="Textures\GLRectangle.cs" />
     <Compile Include="Textures\Readers\ActPalleteFilesGLTextureReader.cs" />
     <Compile Include="Textures\Readers\BitmapGLTextureReader.cs" />

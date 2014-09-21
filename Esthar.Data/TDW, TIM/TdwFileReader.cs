@@ -43,7 +43,8 @@ namespace Esthar.Data
             }
 
             Table = table;
-            TimReader = new TimFileReader(IOStream.GetStreamSegment(IOStream.Position));
+            if (!IOStream.IsEndOfStream())
+                TimReader = new TimFileReader(IOStream.GetStreamSegment(IOStream.Position));
         }
     }
 }

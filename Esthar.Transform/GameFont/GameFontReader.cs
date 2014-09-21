@@ -39,6 +39,9 @@ namespace Esthar.Data.Transform
             using (TdwFileReader tdwReader = new TdwFileReader(tdwEntry.OpenReadableContentStream()))
             using (TimFileReader timReader = tdwReader.TimReader)
             {
+                if (timReader == null)
+                    return null;
+
                 GameImage image = GameImageReader.FromTim(timReader);
                 return new GameFont(image, tdwReader.Table);
             }

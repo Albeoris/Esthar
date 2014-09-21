@@ -22,7 +22,7 @@ namespace Esthar.OpenGL
 
         private static event Action InvalidateControlRequestRecived;
         private static event Action<int> ViewportDesiredHeightChanged;
-        
+
         static GLService()
         {
             Lock = new object();
@@ -189,13 +189,20 @@ namespace Esthar.OpenGL
                 WorkingThread = Exceptions.CheckArgumentNull(workingThread, "workingThread");
                 DrawEvent = new AutoResetEvent(false);
                 StopEvent = new ManualResetEvent(false);
-                WaitHandles = new WaitHandle[] { DrawEvent, StopEvent };
+                WaitHandles = new WaitHandle[] {DrawEvent, StopEvent};
             }
 
             public void StartWorking()
             {
                 WorkingThread.Start(this);
             }
+        }
+
+        public static readonly long Version = checked(((long)GL.GetInteger(GetPName.MajorVersion) << 32) | (GL.GetInteger(GetPName.MinorVersion)));
+
+        public static bool CheckVersion(int major, int minor)
+        {
+            return checked(Version >= (((long)major << 32) | minor));
         }
     }
 }

@@ -92,8 +92,27 @@ namespace Esthar.OpenGL
                     GL.BindTexture(TextureTarget.Texture2D, texture.Id);
                     GL.TexImage2D(TextureTarget.Texture2D, 0, format, texture.Width, texture.Height, 0, format, format, IntPtr.Zero);
 
-                    GL.CopyImageSubData(left.Id, ImageTarget.Texture2D, 0, 0, 0, 0, texture.Id, ImageTarget.Texture2D, 0, 0, 0, 0, left.Width, left.Height, 1);
-                    GL.CopyImageSubData(right.Id, ImageTarget.Texture2D, 0, 0, 0, 0, texture.Id, ImageTarget.Texture2D, 0, left.Width, 0, 0, right.Width, right.Height, 1);
+                    if (GLService.CheckVersion(4, 3))
+                    {
+                        GL.CopyImageSubData(left.Id, ImageTarget.Texture2D, 0, 0, 0, 0, texture.Id, ImageTarget.Texture2D, 0, 0, 0, 0, left.Width, left.Height, 1);
+                        GL.CopyImageSubData(right.Id, ImageTarget.Texture2D, 0, 0, 0, 0, texture.Id, ImageTarget.Texture2D, 0, left.Width, 0, 0, right.Width, right.Height, 1);
+                    }
+                    else
+                    {
+                        using (GLFramebuffer framebuffer = GLFramebuffer.Create())
+                        {
+                            GL.BindFramebuffer(FramebufferTarget.Framebuffer, framebuffer.Id);
+                            GL.FramebufferTexture2D(FramebufferTarget.DrawFramebuffer, FramebufferAttachment.ColorAttachment1, TextureTarget.Texture2D, texture.Id, 0);
+                            
+                            GL.FramebufferTexture2D(FramebufferTarget.ReadFramebuffer, FramebufferAttachment.ColorAttachment0, TextureTarget.Texture2D, left.Id, 0);
+                            GL.DrawBuffer(DrawBufferMode.ColorAttachment1);
+                            GL.BlitFramebuffer(0, 0, left.Width, height, 0, 0, left.Width, height, ClearBufferMask.ColorBufferBit, BlitFramebufferFilter.Linear);
+
+                            GL.FramebufferTexture2D(FramebufferTarget.ReadFramebuffer, FramebufferAttachment.ColorAttachment0, TextureTarget.Texture2D, right.Id, 0);
+                            GL.DrawBuffer(DrawBufferMode.ColorAttachment1);
+                            GL.BlitFramebuffer(0, 0, left.Width, height, left.Width, 0, left.Width * 2, height, ClearBufferMask.ColorBufferBit, BlitFramebufferFilter.Linear);
+                        }
+                    }
 
                     GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
                     GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
@@ -139,8 +158,27 @@ namespace Esthar.OpenGL
                         GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.Repeat);
                     }
 
-                    GL.CopyImageSubData(layer.Id, ImageTarget.Texture2D, 0, 0, 0, 0, leftTexture.Id, ImageTarget.Texture2D, 0, 0, 0, 0, width, height, 1);
-                    GL.CopyImageSubData(layer.Id, ImageTarget.Texture2D, 0, width, 0, 0, rightTexture.Id, ImageTarget.Texture2D, 0, 0, 0, 0, width, height, 1);
+                    if (GLService.CheckVersion(4, 3))
+                    {
+                        GL.CopyImageSubData(layer.Id, ImageTarget.Texture2D, 0, 0, 0, 0, leftTexture.Id, ImageTarget.Texture2D, 0, 0, 0, 0, width, height, 1);
+                        GL.CopyImageSubData(layer.Id, ImageTarget.Texture2D, 0, width, 0, 0, rightTexture.Id, ImageTarget.Texture2D, 0, 0, 0, 0, width, height, 1);
+                    }
+                    else
+                    {
+                        using (GLFramebuffer framebuffer = GLFramebuffer.Create())
+                        {
+                            GL.BindFramebuffer(FramebufferTarget.Framebuffer, framebuffer.Id);
+                            GL.FramebufferTexture2D(FramebufferTarget.ReadFramebuffer, FramebufferAttachment.ColorAttachment0, TextureTarget.Texture2D, layer.Id, 0);
+                            
+                            GL.FramebufferTexture2D(FramebufferTarget.DrawFramebuffer, FramebufferAttachment.ColorAttachment1, TextureTarget.Texture2D, leftTexture.Id, 0);
+                            GL.DrawBuffer(DrawBufferMode.ColorAttachment1);
+                            GL.BlitFramebuffer(0, 0, width, height, 0, 0, width, height, ClearBufferMask.ColorBufferBit, BlitFramebufferFilter.Linear);
+
+                            GL.FramebufferTexture2D(FramebufferTarget.DrawFramebuffer, FramebufferAttachment.ColorAttachment1, TextureTarget.Texture2D, rightTexture.Id, 0);
+                            GL.DrawBuffer(DrawBufferMode.ColorAttachment1);
+                            GL.BlitFramebuffer(width, 0, width * 2, height, 0, 0, width, height, ClearBufferMask.ColorBufferBit, BlitFramebufferFilter.Linear);
+                        }
+                    }
                 }
             }
             catch
