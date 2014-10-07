@@ -350,12 +350,12 @@ namespace Esthar.Data.Transform
             if (!node.GetBoolean("IsExists"))
                 return true;
 
-            ushort[] enemiesID = new ushort[node.ChildNodes.Count];
-            for (int i = 0; i < enemiesID.Length; i++)
-                enemiesID[i] = ((XmlElement)node.ChildNodes[i]).GetUInt16("Id");
+            ushort[] enemyIds = new ushort[node.ChildNodes.Count];
+            for (int i = 0; i < enemyIds.Length; i++)
+                enemyIds[i] = ((XmlElement)node.ChildNodes[i]).GetUInt16("Id");
             byte frequency = node.GetByte("Frequency");
             
-            Encounters result = new Encounters(enemiesID, frequency);
+            Encounters result = new Encounters(enemyIds, frequency);
             location.Encounters = result;
 
             location.SaveRequest &= ~LocationProperty.Encounters;
@@ -394,7 +394,7 @@ namespace Esthar.Data.Transform
                     ushort executionOrder = br.ReadUInt16();
                     ushort label = br.ReadUInt16();
                     string title = br.ReadString();
-                    Data.JsmModuleType type = (Data.JsmModuleType)br.ReadInt32();
+                    JsmModuleType type = (JsmModuleType)br.ReadInt32();
                     int scriptsCount = br.ReadInt32();
 
                     AsmModule module = AsmModuleFactory.Create(type);

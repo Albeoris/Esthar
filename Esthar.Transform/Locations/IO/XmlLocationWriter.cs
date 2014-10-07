@@ -285,7 +285,7 @@ namespace Esthar.Data.Transform
                 bw.Write("FF8S");
                 bw.Write(scripts.Count);
 
-                foreach (AsmModule module in scripts.GetOrderedModules())
+                foreach (AsmModule module in scripts.GetOrderedModulesByIndex())
                 {
                     bw.Write(module.ExecutionOrder);
                     bw.Write(module.Label);
