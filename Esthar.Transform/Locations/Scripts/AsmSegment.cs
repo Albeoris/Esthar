@@ -5,7 +5,7 @@ using Esthar.Core;
 
 namespace Esthar.Data.Transform
 {
-    public sealed class AsmSegment : IEnumerable<AsmOperation>, IEquatable<AsmSegment>
+    public sealed class AsmSegment : IEnumerable<JsmOperation>, IEquatable<AsmSegment>
     {
         public readonly Guid Id = Guid.NewGuid();
         public readonly AsmEvent Event;
@@ -23,13 +23,13 @@ namespace Esthar.Data.Transform
             Length = length;
         }
 
-        public AsmOperation this[int index]
+        public JsmOperation this[int index]
         {
             get { return Event[Offset + index]; }
             set { Event[Offset + index] = value; }
         }
 
-        public IEnumerator<AsmOperation> GetEnumerator()
+        public IEnumerator<JsmOperation> GetEnumerator()
         {
             for (int i = Offset; i < Length; i++)
                 yield return Event[i];

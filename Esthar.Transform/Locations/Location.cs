@@ -156,16 +156,32 @@ namespace Esthar.Data.Transform
             using (new DisposableBeginEndActions(() => _xmlReader.BeginRead(this), () => _xmlReader.EndRead()))
             using (new DisposableBeginEndActions(() => _gameWriter.BeginWrite(), () => _gameWriter.EndWrite()))
             {
-                //if ((Importable & LocationProperty.Scripts) == LocationProperty.Scripts)
-                //{
-                //    if (Scripts == null) _xmlReader.ReadScripts(this);
-                //    _gameWriter.WriteScripts(Scripts);
-                //}
+                if ((Importable & LocationProperty.Scripts) == LocationProperty.Scripts)
+                {
+                    if (Scripts == null)
+                    {
+                        _xmlReader.ReadScripts(this);
+                        _gameWriter.WriteScripts(Scripts);
+                        Scripts = null;
+                    }
+                    else
+                    {
+                        _gameWriter.WriteScripts(Scripts);
+                    }
+                }
 
                 if ((Importable & LocationProperty.Monologues) == LocationProperty.Monologues)
                 {
-                    if (Monologues == null) _xmlReader.ReadMonologues(this);
-                    _gameWriter.WriteMonologues(Monologues);
+                    if (Monologues == null)
+                    {
+                        _xmlReader.ReadMonologues(this);
+                        _gameWriter.WriteMonologues(Monologues);
+                        Monologues = null;
+                    }
+                    else
+                    {
+                        _gameWriter.WriteMonologues(Monologues);
+                    }
                 }
             }
         }

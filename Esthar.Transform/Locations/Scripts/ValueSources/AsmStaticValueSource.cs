@@ -2,9 +2,9 @@
 {
     public sealed class AsmStaticValueSource : AsmValueSource
     {
-        private readonly AsmOperation _operation;
+        private readonly JsmOperation _operation;
 
-        public AsmStaticValueSource(AsmOperation operation)
+        public AsmStaticValueSource(JsmOperation operation)
             : base(AsmValueSourceType.Static)
         {
             _operation = operation;

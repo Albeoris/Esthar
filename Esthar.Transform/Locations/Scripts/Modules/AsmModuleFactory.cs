@@ -4,17 +4,17 @@ namespace Esthar.Data.Transform
 {
     public static class AsmModuleFactory
     {
-        public static AsmModule Create(Data.AsmModuleType type)
+        public static AsmModule Create(Data.JsmModuleType type)
         {
             switch (type)
             {
-                case Data.AsmModuleType.Door:
+                case Data.JsmModuleType.Door:
                     return new AsmDoor();
-                case Data.AsmModuleType.Area:
+                case Data.JsmModuleType.Area:
                     return new AsmArea();
-                case Data.AsmModuleType.Module:
-                    return new AsmModule(AsmModuleType.Module);
-                case Data.AsmModuleType.Object:
+                case Data.JsmModuleType.Module:
+                    return new AsmModule(JsmModuleType.Module);
+                case Data.JsmModuleType.Object:
                     return new AsmObject();
             }
 

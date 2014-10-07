@@ -298,13 +298,8 @@ namespace Esthar.Data.Transform
                         bw.Write(script.Title);
                         bw.Write(script.Count);
                         
-                        foreach (AsmOperation operation in script)
-                        {
-                            bw.Write(operation.Argument != null);
-                            bw.Write((int)operation.Command);
-                            if (operation.Argument != null)
-                                bw.Write(operation.Argument.Value);
-                        }
+                        foreach (JsmOperation operation in script)
+                            bw.Write(operation.Operation);
                     }
                 }
             }

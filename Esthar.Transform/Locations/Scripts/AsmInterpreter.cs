@@ -42,7 +42,7 @@ namespace Esthar.Data.Transform
             AsmCommandFactory factory = new AsmCommandFactory(module.Construct);
             switch (module.Type)
             {
-                case AsmModuleType.Object:
+                case JsmModuleType.Object:
                 {
                     AsmSetCharacterCommand cmd = factory.TryFind<AsmSetCharacterCommand>(JsmCommand.SETPC);
                     if (cmd != null) ((AsmObject)module).CharacterId = cmd.TryResolveCharacterId();
@@ -58,13 +58,13 @@ namespace Esthar.Data.Transform
 
             for (int i = 0; i < evt.Count; i++)
             {
-                AsmOperation opetation = evt[i];
+                JsmOperation opetation = evt[i];
                 switch (opetation.Command)
                 {
                     case JsmCommand.JMP:
                     case JsmCommand.JPF:
                         jumpFrom.Add(i);
-                        jumpTo.Add(Math.Max(0, i + opetation.Argument.Value)); // JMP -5479
+                        jumpTo.Add(Math.Max(0, i + opetation.Argument)); // JMP -5479
                         break;
                 }
             }
@@ -144,7 +144,7 @@ namespace Esthar.Data.Transform
             {
                 AsmSegment source = segments[s];
                 AsmSegment target = segments[s + 1];
-                AsmOperation last = source[source.Length - 1];
+                JsmOperation last = source[source.Length - 1];
                 if (last.Command == JsmCommand.JPF)
                 {
                     AsmConditionBinding binding = new AsmConditionBinding(source, target, AsmValueSource.Create(source, source.Length - 2), true);
@@ -167,7 +167,7 @@ namespace Esthar.Data.Transform
                 AsmSegment source = segments.GetSegmentByOffset(fromIndex);
                 AsmSegment target = segments.GetSegmentByOffset(toIndex);
 
-                AsmOperation last = source[source.Length - 1];
+                JsmOperation last = source[source.Length - 1];
                 if (last.Command == JsmCommand.JMP)
                 {
                     AsmHardlinkBinding binding = new AsmHardlinkBinding(source, target);
@@ -189,7 +189,7 @@ namespace Esthar.Data.Transform
             {
                 for (int i = 0; i < evt.Count; i++)
                 {
-                    AsmOperation operation = evt[i];
+                    JsmOperation operation = evt[i];
                     switch (operation.Command)
                     {
                         case JsmCommand.REQ:
@@ -198,7 +198,7 @@ namespace Esthar.Data.Transform
                         {
                             AsmSegment source = evt.Segments.GetSegmentByOffset(i);
                             AsmValueSource labelTargetEvent = AsmValueSource.Create(evt, i - 1);
-                            AsmAbsoluteRequestBinding binding = new AsmAbsoluteRequestBinding(source, i - source.Offset, operation.Argument.Value, labelTargetEvent);
+                            AsmAbsoluteRequestBinding binding = new AsmAbsoluteRequestBinding(source, i - source.Offset, operation.Argument, labelTargetEvent);
                             source.OutputBindings.Add(binding);
                             AsmSegment[] targets = binding.ResolveTargets();
                             if (targets != null)
@@ -213,7 +213,7 @@ namespace Esthar.Data.Transform
                         {
                             AsmSegment source = evt.Segments.GetSegmentByOffset(i);
                             AsmValueSource labelTargetEvent = AsmValueSource.Create(evt, i - 1);
-                            AsmRelativeRequestBinding binding = new AsmRelativeRequestBinding(source, i - source.Offset, operation.Argument.Value, labelTargetEvent);
+                            AsmRelativeRequestBinding binding = new AsmRelativeRequestBinding(source, i - source.Offset, operation.Argument, labelTargetEvent);
                             source.OutputBindings.Add(binding);
                             AsmSegment[] targets = binding.ResolveTargets();
                             if (targets != null)

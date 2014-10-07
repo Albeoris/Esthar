@@ -108,27 +108,45 @@ namespace Esthar.Data.Transform
             if (jsmEntry == null)
                 return;
 
-            throw new NotImplementedException();
-
             JsmHeader header = new JsmHeader();
-            JsmGroup[] groups = null;
-            JsmScript[] scripts = null;
-            JsmOperation[] opertations = null;
+            List<JsmGroup> groups = new List<JsmGroup>(8);
+            List<JsmScript> scripts = new List<JsmScript>(32);
+            List<JsmOperation> operations = new List<JsmOperation>(512);
 
-            using (JsmFileWriter jsmWriter = new JsmFileWriter(jsmEntry.OpenWritableCapacityStream()))
+            foreach (AsmModule module in asmCollection.GetOrderedModules())
             {
-                jsmWriter.WriteScripts(header, groups, scripts, opertations);
+                JsmGroup group = new JsmGroup(module.ExecutionOrder, module.Label, (byte)module.Count, (JsmModuleType)module.Type);
+                header.IncrementCount(group.Type);
+                groups.Add(group);
             }
 
-            ArchiveFileEntry symEntry = (ArchiveFileEntry)_locationDirectory.Childs.TryGetValue(_name + ".sym");
-            if (symEntry == null)
-                return;
+            foreach (AsmModule module in asmCollection.GetOrderedModulesByIndex())
+            {
+                foreach (AsmEvent evt in module.GetOrderedEvents())
+                {
+                    JsmScript script = new JsmScript((ushort)operations.Count, evt.Flag);
+                    scripts.Add(script);
+
+                    foreach (JsmOperation command in evt)
+                        operations.Add(command);
+                }
+            }
+
+            scripts.Add(new JsmScript((ushort)operations.Count, false));
+
+            header.ScriptsOffset = (ushort)(8 + groups.Count * 2);
+            header.OperationsOffset = (ushort)(header.ScriptsOffset + scripts.Count * 2);
+
+            using (JsmFileWriter jsmWriter = new JsmFileWriter(jsmEntry.OpenWritableCapacityStream()))
+                jsmWriter.WriteScripts(header, groups, scripts, operations);
+
+            //ArchiveFileEntry symEntry = (ArchiveFileEntry)_locationDirectory.Childs.TryGetValue(_name + ".sym");
+            //if (symEntry == null)
+            //    return;
 
             //using (SymFileWriter symWriter = new SymFileWriter(symEntry.OpenWritableCapacityStream()))
             //{
             //}
-
-            return;
         }
 
         public void WriteModels(SafeHGlobalHandle oneContent)

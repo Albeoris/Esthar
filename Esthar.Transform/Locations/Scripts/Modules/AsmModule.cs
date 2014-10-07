@@ -12,14 +12,14 @@ namespace Esthar.Data.Transform
 
         public AsmModule PreviousModule, NextModule;
 
-        public readonly AsmModuleType Type;
+        public readonly JsmModuleType Type;
         public AsmEvent Construct;
         public AsmEvent Initialize;
         public readonly Dictionary<ushort, AsmEvent> Scripts = new Dictionary<ushort, AsmEvent>();
 
         public AsmCollection ParentCollection;
 
-        public AsmModule(AsmModuleType type)
+        public AsmModule(JsmModuleType type)
         {
             Type = type;
         }

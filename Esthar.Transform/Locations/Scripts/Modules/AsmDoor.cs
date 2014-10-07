@@ -11,7 +11,7 @@ namespace Esthar.Data.Transform
         public AsmEvent Off;
 
         public AsmDoor()
-            : base(AsmModuleType.Door)
+            : base(JsmModuleType.Door)
         {
         }
 

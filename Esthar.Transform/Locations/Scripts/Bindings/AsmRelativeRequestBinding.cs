@@ -22,7 +22,7 @@ namespace Esthar.Data.Transform
 
             return SourceSegment.Event.Module.ParentCollection
                 .GetOrderedModules()
-                .Where(m => m.Type == AsmModuleType.Object && ((AsmObject)m).CharacterId != AsmCharacterId.None)
+                .Where(m => m.Type == JsmModuleType.Object && ((AsmObject)m).CharacterId != AsmCharacterId.None)
                 .SelectMany(m => m.GetOrderedEvents().Skip(value.Value - 1).Take(1))
                 .Select(e => e.Segments[0])
                 .ToArray();

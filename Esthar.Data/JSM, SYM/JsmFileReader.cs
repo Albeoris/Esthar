@@ -30,30 +30,30 @@ namespace Esthar.Data
 
             JsmHeader header = IOStream.ReadStruct<JsmHeader>();
 
-            int groupCount = (header.section1 - 8) / 2;
-            int scriptCount = (header.section2 - header.section1) / 2;
-            int operationsCount = (int)((IOStream.Length - header.section2) / 4);
+            int groupCount = (header.ScriptsOffset - 8) / 2;
+            int scriptCount = (header.OperationsOffset - header.ScriptsOffset) / 2;
+            int operationsCount = (int)((IOStream.Length - header.OperationsOffset) / 4);
 
             ushort index = 0;
             SortedList<ushort, JsmGroup> groups = new SortedList<ushort, JsmGroup>(groupCount);
-            for (ushort i = 0; i < header.countLines; ++i)
+            for (ushort i = 0; i < header.CountAreas; ++i)
             {
-                JsmGroup group = ReadJsmGroup(br, index++, AsmModuleType.Area);
+                JsmGroup group = ReadJsmGroup(br, index++, JsmModuleType.Area);
                 groups.Add(group.Label, group);
             }
-            for (ushort i = 0; i < header.countDoors; ++i)
+            for (ushort i = 0; i < header.CountDoors; ++i)
             {
-                JsmGroup group = ReadJsmGroup(br, index++, AsmModuleType.Door);
+                JsmGroup group = ReadJsmGroup(br, index++, JsmModuleType.Door);
                 groups.Add(group.Label, group);
             }
-            for (ushort i = 0; i < header.countBackgrounds; ++i)
+            for (ushort i = 0; i < header.CountModules; ++i)
             {
-                JsmGroup group = ReadJsmGroup(br, index++, AsmModuleType.Module);
+                JsmGroup group = ReadJsmGroup(br, index++, JsmModuleType.Module);
                 groups.Add(group.Label, group);
             }
-            for (ushort i = 0; i < header.countOthers; ++i)
+            for (ushort i = 0; i < header.CountObjects; ++i)
             {
-                JsmGroup group = ReadJsmGroup(br, index++, AsmModuleType.Object);
+                JsmGroup group = ReadJsmGroup(br, index++, JsmModuleType.Object);
                 groups.Add(group.Label, group);
             }
 
@@ -79,7 +79,7 @@ namespace Esthar.Data
             Opertations = opertations;
         }
 
-        private JsmGroup ReadJsmGroup(BinaryReader br, ushort index, AsmModuleType type)
+        private JsmGroup ReadJsmGroup(BinaryReader br, ushort index, JsmModuleType type)
         {
             ushort group = br.ReadUInt16();
             ushort label = (ushort)(group >> 7);

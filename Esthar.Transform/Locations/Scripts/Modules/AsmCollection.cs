@@ -39,6 +39,11 @@ namespace Esthar.Data.Transform
             return _dic.Values.OrderBy(m => m.ExecutionOrder);
         }
 
+        public IEnumerable<AsmModule> GetOrderedModulesByIndex()
+        {
+            return _dic.Values.OrderBy(m => m.Index);
+        }
+
         public AsmModule GetModuleByIndex(int index)
         {
             return _dic.Values.FirstOrDefault(m => m.Index == index);

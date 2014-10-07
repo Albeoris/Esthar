@@ -62,6 +62,7 @@ namespace Esthar
                 return;
 
             window.IsIndent = !window.IsIndent;
+            Context.Location.SaveRequest |= LocationProperty.Monologues;
             OnFilterChanged(_lastFilter);
         }
 
@@ -109,6 +110,7 @@ namespace Esthar
                 }
             }
 
+            Context.Location.SaveRequest |= LocationProperty.Monologues;
             OnFilterChanged(_lastFilter);
         }
 

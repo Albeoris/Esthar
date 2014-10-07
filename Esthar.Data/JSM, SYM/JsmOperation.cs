@@ -1,12 +1,16 @@
-﻿namespace Esthar.Data
+﻿using System;
+
+namespace Esthar.Data
 {
     public sealed class JsmOperation
     {
-        public readonly uint Operation;
+        public uint Operation;
 
         public JsmOperation(uint operation)
         {
             Operation = operation;
+            if ((Operation & 0x00800000) == 0)
+                return;
         }
 
         public bool HasArgument
@@ -22,6 +26,13 @@
         public int Argument
         {
             get { return (int)((Operation & 0x00800000) == 0 ? (Operation & 0x00FFFFFF) : (Operation | 0xFF000000)); }
+            set
+            {
+                if ((Operation & 0x00800000) == 0)
+                    Operation = (uint)((Operation & 0xFF000000) | (value & 0x00FFFFFF));
+                else
+                    throw new NotImplementedException();
+            }
         }
     }
 }

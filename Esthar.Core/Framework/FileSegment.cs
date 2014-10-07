@@ -8,9 +8,11 @@ namespace Esthar.Core
         private readonly MemoryMappedFile _mmf;
         private readonly Stream _stream;
         private long _length;
+        public long _offset;
 
         public FileSegment(MemoryMappedFile mmf, long offset, long length, MemoryMappedFileAccess access)
         {
+            _offset = offset;
             _mmf = Exceptions.CheckArgumentNull(mmf, "mmf");
             try
             {

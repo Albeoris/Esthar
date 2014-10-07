@@ -13,7 +13,7 @@ namespace Esthar.Data.Transform
         private AsmEvent TouchOff;
 
         public AsmArea()
-            : base(AsmModuleType.Area)
+            : base(JsmModuleType.Area)
         {
         }
 

@@ -36,7 +36,7 @@ namespace Esthar.Data.Transform
 
         public static AsmValueSource Create(AsmEvent evt, int offset)
         {
-            AsmOperation operation = evt[offset];
+            JsmOperation operation = evt[offset];
             switch (operation.Command)
             {
                 case JsmCommand.PSHN_L:

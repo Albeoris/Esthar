@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Esthar.Core;
 
@@ -18,7 +19,7 @@ namespace Esthar.Data
             _output.SafeDispose();
         }
 
-        public void WriteScripts(JsmHeader header, JsmGroup[] groups, JsmScript[] scripts, JsmOperation[] opertations)
+        public void WriteScripts(JsmHeader header, IEnumerable<JsmGroup> groups, IEnumerable<JsmScript> scripts, IEnumerable<JsmOperation> opertations)
         {
             BinaryWriter bw = new BinaryWriter(_output);
 
@@ -28,7 +29,7 @@ namespace Esthar.Data
                 bw.Write((ushort)((group.Label << 7) | (group.ScriptsCount - 1)));
 
             foreach (JsmScript script in scripts)
-                bw.Write((ushort)(script.OperationsCount | ((script.Flag ? 1 : 0) << 15)));
+                bw.Write((ushort)(script.Position | ((script.Flag ? 1 : 0) << 15)));
 
             foreach (JsmOperation operation in opertations)
                 bw.Write(operation.Operation);

@@ -148,9 +148,7 @@
     <Compile Include="Locations\Scripts\AsmEvent.cs" />
     <Compile Include="Locations\Scripts\Modules\AsmModule.cs" />
     <Compile Include="Locations\Scripts\Modules\AsmModuleFactory.cs" />
-    <Compile Include="Locations\Scripts\Modules\AsmModuleType.cs" />
     <Compile Include="Locations\Scripts\Modules\AsmObject.cs" />
-    <Compile Include="Locations\Scripts\AsmOperation.cs" />
     <Compile Include="Locations\Scripts\AsmSegment.cs" />
     <Compile Include="Locations\Scripts\ValueSources\AsmStaticValueSource.cs" />
     <Compile Include="Locations\Scripts\ValueSources\AsmUnknownValueSource.cs" />

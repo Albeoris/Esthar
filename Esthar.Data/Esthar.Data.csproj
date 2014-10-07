@@ -115,7 +115,7 @@
     <Compile Include="JSM, SYM\JsmFileWriter.cs" />
     <Compile Include="JSM, SYM\JsmFileReader.cs" />
     <Compile Include="JSM, SYM\JsmGroup.cs" />
-    <Compile Include="JSM, SYM\AsmModuleType.cs" />
+    <Compile Include="JSM, SYM\JsmModuleType.cs" />
     <Compile Include="JSM, SYM\JsmHeader.cs" />
     <Compile Include="JSM, SYM\JsmOperation.cs" />
     <Compile Include="JSM, SYM\JsmOperationCode.cs" />

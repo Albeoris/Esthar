@@ -121,9 +121,6 @@ namespace Esthar.Data.Transform
 
         private void WriteColor(Color color, MimTileBlendType blendType, Stream ioStream)
         {
-            if (color.R == 0x78 && color.G == 0x78 && color.B == 0x78)
-                Console.WriteLine();
-
             if (ColorsHelper.IsBlack(color))
             {
                 ioStream.Seek(3, SeekOrigin.Current);

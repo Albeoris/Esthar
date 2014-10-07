@@ -298,12 +298,7 @@ namespace Esthar.Data.Transform
                         for (int k = 0; k < jsmScript.OperationsCount; k++)
                         {
                             JsmOperation jsmOperation = jsmReader.Opertations[o++];
-                            AsmOperation asmOperation = new AsmOperation
-                            {
-                                Command = jsmOperation.Command,
-                                Argument = jsmOperation.HasArgument ? (int?)jsmOperation.Argument : null
-                            };
-                            asmScript.Add(asmOperation);
+                            asmScript.Add(jsmOperation);
                         }
                     }
                 }

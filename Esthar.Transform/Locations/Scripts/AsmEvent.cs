@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Esthar.Data.Transform
 {
-    public sealed class AsmEvent : List<AsmOperation>
+    public sealed class AsmEvent : List<JsmOperation>
     {
         public ushort Index;
         public ushort Label;
@@ -21,7 +21,7 @@ namespace Esthar.Data.Transform
             Module = module;
         }
 
-        public AsmEvent(AsmModule module, IEnumerable<AsmOperation> operations)
+        public AsmEvent(AsmModule module, IEnumerable<JsmOperation> operations)
             : base(operations)
         {
             Module = module;
@@ -30,9 +30,9 @@ namespace Esthar.Data.Transform
         public AsmModule Module;
         public AsmSegments Segments;
 
-        public AsmOperation GetOperation(JsmCommand command, int offset)
+        public JsmOperation GetOperation(JsmCommand command, int offset)
         {
-            AsmOperation operation = this[offset];
+            JsmOperation operation = this[offset];
             if (operation.Command != command)
                 throw new ArgumentException("offset");
             return operation;
@@ -40,44 +40,47 @@ namespace Esthar.Data.Transform
 
         public int GetOperationArgument(JsmCommand command, int offset)
         {
-            AsmOperation operation = GetOperation(command, offset);
-            if (operation.Argument == null)
+            JsmOperation operation = GetOperation(command, offset);
+            if (!operation.HasArgument)
                 throw new ArgumentException("command");
-            return operation.Argument.Value;
+            return operation.Argument;
         }
 
-        public AsmOperation GetOperation(int offset)
+        public JsmOperation GetOperation(int offset)
         {
             return this[offset];
         }
 
         public int GetOperationArgument(int offset)
         {
-            AsmOperation operation = GetOperation(offset);
-            if (operation.Argument == null)
+            JsmOperation operation = GetOperation(offset);
+            if (!operation.HasArgument)
                 throw new ArgumentException("offset");
 
             switch (operation.Command)
             {
                 case JsmCommand.PSHN_L:
-                    return operation.Argument.Value;
+                    return operation.Argument;
             }
-            return operation.Argument.Value;
+
+            throw new NotImplementedException();
+            return operation.Argument;
         }
 
         public void SetOperationArgument(int offset, int value)
         {
-            AsmOperation operation = GetOperation(offset);
-            if (operation.Argument == null)
+            JsmOperation operation = GetOperation(offset);
+            if (!operation.HasArgument)
                 throw new ArgumentException("offset");
 
             switch (operation.Command)
             {
                 case JsmCommand.PSHN_L:
                     operation.Argument = value;
-                    break;
+                    return;
             }
 
+            throw new NotImplementedException();
             operation.Argument = value;
         }
 

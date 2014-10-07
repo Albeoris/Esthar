@@ -1,6 +1,6 @@
 ﻿namespace Esthar.Data
 {
-    public enum AsmModuleType
+    public enum JsmModuleType
     {
         Door = 1,
         Area,

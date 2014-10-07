@@ -9,7 +9,7 @@ namespace Esthar.Data.Transform
         public AsmEvent Push;
 
         public AsmObject()
-            : base(AsmModuleType.Object)
+            : base(JsmModuleType.Object)
         {
         }
 

@@ -5,9 +5,9 @@
         public readonly ushort ExecutionOrder;
         public readonly ushort Label;
         public readonly byte ScriptsCount;
-        public readonly AsmModuleType Type;
+        public readonly JsmModuleType Type;
 
-        public JsmGroup(ushort executionOrder, ushort label, byte scriptsCount, AsmModuleType type)
+        public JsmGroup(ushort executionOrder, ushort label, byte scriptsCount, JsmModuleType type)
         {
             ExecutionOrder = executionOrder;
             Label = label;

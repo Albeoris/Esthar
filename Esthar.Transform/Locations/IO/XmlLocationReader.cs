@@ -394,7 +394,7 @@ namespace Esthar.Data.Transform
                     ushort executionOrder = br.ReadUInt16();
                     ushort label = br.ReadUInt16();
                     string title = br.ReadString();
-                    Data.AsmModuleType type = (Data.AsmModuleType)br.ReadInt32();
+                    Data.JsmModuleType type = (Data.JsmModuleType)br.ReadInt32();
                     int scriptsCount = br.ReadInt32();
 
                     AsmModule module = AsmModuleFactory.Create(type);
@@ -415,10 +415,7 @@ namespace Esthar.Data.Transform
                         module.SetEventByIndex(s, script);
                         for (int o = 0; o < operationsCount; o++)
                         {
-                            bool hasArgument = br.ReadBoolean();
-                            JsmCommand command = (JsmCommand)br.ReadInt32();
-                            int? argument = hasArgument ? (int?)br.ReadInt32() : null;
-                            AsmOperation operation = new AsmOperation { Command = command, Argument = argument };
+                            JsmOperation operation = new JsmOperation(br.ReadUInt32());
                             script.Add(operation);
                         }
                     }

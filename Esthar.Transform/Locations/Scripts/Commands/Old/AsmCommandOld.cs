@@ -8,7 +8,7 @@ namespace Esthar.Data.Transform
         protected readonly AsmEvent Script;
         protected readonly int Offset;
 
-        public AsmOperation Operation { get; private set; }
+        public JsmOperation Operation { get; private set; }
         public abstract void CommitChanges();
 
         protected AsmCommandOld(JsmCommand command, int offset, AsmEvent script)

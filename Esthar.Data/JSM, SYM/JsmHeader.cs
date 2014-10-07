@@ -1,11 +1,31 @@
 ﻿namespace Esthar.Data
 {
-    public struct JsmHeader {
-        public byte countLines;
-        public byte countDoors;
-        public byte countBackgrounds;
-        public byte countOthers;
-        public ushort section1;
-        public ushort section2;
+    public struct JsmHeader
+    {
+        public byte CountAreas;
+        public byte CountDoors;
+        public byte CountModules;
+        public byte CountObjects;
+        public ushort ScriptsOffset;
+        public ushort OperationsOffset;
+
+        public void IncrementCount(JsmModuleType type)
+        {
+            switch (type)
+            {
+                case JsmModuleType.Area:
+                    CountAreas++;
+                    break;
+                case JsmModuleType.Door:
+                    CountDoors++;
+                    break;
+                case JsmModuleType.Module:
+                    CountModules++;
+                    break;
+                case JsmModuleType.Object:
+                    CountObjects++;
+                    break;
+            }
+        }
     }
 }
