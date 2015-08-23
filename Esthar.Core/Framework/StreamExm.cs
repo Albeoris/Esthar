@@ -28,7 +28,10 @@ namespace Esthar.Core
 
             int readed;
             while (size > 0 && (readed = self.Read(buff, offset, size)) != 0)
+			{
                 size -= readed;
+				offset += readed;
+            }
 
             if (size != 0)
                 throw new Exception("Неожиданный конец потока.");

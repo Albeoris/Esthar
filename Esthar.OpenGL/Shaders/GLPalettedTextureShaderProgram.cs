@@ -43,7 +43,8 @@ namespace Esthar.OpenGL
             return UnuseProgramAction;
         }
 
-        private const string FragmentShaderSource = @"uniform sampler2D texture;
+        private const string FragmentShaderSource = @"#version 330 compatibility
+uniform sampler2D texture;
 uniform sampler2D palette;
 uniform int paletteIndex;
 

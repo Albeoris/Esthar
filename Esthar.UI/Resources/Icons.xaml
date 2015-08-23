@@ -9,6 +9,9 @@
     <PathGeometry x:Key="CrossIconGeometry" FillRule="Nonzero" Figures="M 4.70432,0L 0.0480347,4.77802L 7.00842,11.6812L 0,18.7292L 4.70432,23.46L 11.6647,16.412L 18.6252,23.46L 23.3774,18.7774L 16.369,11.6812L 23.3294,4.77802L 18.6252,0L 11.6647,6.9986L 4.70432,0 Z "/>
     <Path x:Key="RedCrossIcon" Stretch="Uniform" UseLayoutRounding="False" Fill="DarkRed" Data="{StaticResource CrossIconGeometry}"/>
 
+    <PathGeometry x:Key="CheckMarkIconGeometry" FillRule="Nonzero" Figures="M 0,110L 47.6667,62L 102,117.333L 218.667,0L 266,48L 102,212.333L 0,110 Z " />
+    <Path x:Key="GreenOkIcon" Stretch="Uniform" UseLayoutRounding="False" Fill="ForestGreen" Data="{StaticResource CheckMarkIconGeometry}"/>
+
     <Path x:Key="ArrowUpIcon" Stretch="Uniform" Fill="RoyalBlue" Data="F1 M 10.7846,0L 3.05176e-005,14.0247L 6.82043,14.0247L 6.82043,26.8469L 14.7495,26.8469L 14.7495,14.0247L 21.5698,14.0247L 10.7846,0 Z "/>
     <Path x:Key="ArrowDownIcon" Stretch="Uniform" Fill="RoyalBlue" Data="F1 M 10.7852,26.8469L 21.5698,12.8223L 14.7494,12.8223L 14.7494,-3.05176e-005L 6.82028,-3.05176e-005L 6.82028,12.8223L 3.05176e-005,12.8223L 10.7852,26.8469 Z "/>
 
